@@ -1,0 +1,37 @@
+.button {
+  outline: none;
+  border: none;
+  background: none;
+  display: block;
+  padding: 13px;
+  z-index: 10;
+  position: fixed;
+  &_cartMode {
+    & .line {
+      background: #A0AEB9;
+    }
+  }
+  &_active {
+    & .line {
+      background: #A0AEB9;
+      &_first {
+        transform: rotate(18deg);
+      }
+      &_last {
+        transform: rotate(-18deg);
+      }
+    }
+  }
+}
+
+.line {
+  height: 5px;
+  width: 52px;
+  background: #fff;
+  border-radius: 3px;
+  transition: transform .25s;
+  transform-origin: 0 50%;
+  &_first {
+    margin-bottom: 11px;
+  }
+}

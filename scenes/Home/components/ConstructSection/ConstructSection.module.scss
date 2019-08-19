@@ -1,0 +1,69 @@
+@import "../../../../px-to-rem.scss";
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.leftCol {
+  height: 100%;
+  max-width: 55%;
+  flex: 1 1 55%;
+  background-image: url(/static/img/content/kit_pic.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.rightCol {
+  background: #D5A29C;
+  height: 100%;
+  max-width: 45%;
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article {
+  width: rem(419px);
+}
+
+.content {
+  font-size: rem(18px);
+  line-height: 1.66;
+  margin-bottom: rem(43px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .leftCol {
+    box-sizing: border-box;
+    padding: 50% 0;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .rightCol {
+    height: auto;
+    max-width: 100%;
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 50px 50px;
+  }
+
+  .article {
+    width: auto;
+  }
+
+  .content {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}

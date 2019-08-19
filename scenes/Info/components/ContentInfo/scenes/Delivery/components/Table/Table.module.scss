@@ -1,0 +1,64 @@
+@import "../../../../../../../../px-to-rem";
+
+.wrapper {
+  margin-bottom: rem(52px);
+}
+
+.container {
+  overflow-x: auto;
+  margin-bottom: rem(3px)
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: rem(16px);
+  line-height: 1.85;
+  margin-bottom: rem(5px);
+  & td, th {
+    padding: rem(4px) rem(27px) rem(9px);
+    text-align: center;
+    &:first-child {
+      text-align: left;
+    }
+  }
+  & th {
+    background-color: #9499A4;
+    color: #B5BAC6;
+    font-weight: 600;
+  }
+  & td {
+    border-bottom: 1px solid #FFFFFF;
+    & strong {
+      font-weight: 600;
+    }
+  }
+}
+
+.info {
+  font-size: rem(12px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: -37px;
+    margin-right: -37px;
+  }
+
+  .table {
+    font-size: 12px;
+    & td, th {
+      padding: 5px 10px 7px;
+      &:first-child {
+        padding-left: 37px;
+      }
+
+      &:last-child {
+        padding-right: 37px;
+      }
+    }
+    & th {
+      line-height: 1.5;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import "../../px-to-rem";
+
+.main {
+  background: #B5BAC6;
+  padding-top: rem(145px);
+}
+
+.mainTitle {
+  font-family: "Amatic SC";
+  font-size: rem(70px);
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 0 rem(71px);
+  text-align: center;
+}
+
+.container {
+  max-width: rem(1054px);
+  width: 100%;
+  padding: 0 rem(23px);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.row {
+  margin: 0 rem(-23px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: 0 rem(23px);
+  box-sizing: border-box;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  margin-bottom: rem(46px);
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 93px;
+  }
+
+  .mainTitle {
+    font-size: 47px;
+    margin-bottom: 28px;
+  }
+
+  .container {
+    padding: 0 38px;
+  }
+
+  .row {
+    margin: 0 -8px;
+  }
+
+  .item {
+    padding: 0 7px;
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 29px;
+  }
+}

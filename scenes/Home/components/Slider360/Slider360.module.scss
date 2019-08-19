@@ -1,0 +1,162 @@
+@import "../../../../px-to-rem";
+
+.container {
+  position: absolute;
+  bottom: rem(111px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .1s ease-out;
+  &_active {
+    opacity: 1;
+    transition: opacity .3s ease-out;
+  }
+}
+
+.imgBlock {
+  display: block;
+  position: absolute;
+  top: rem(-454px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: rem(596px);
+  height: rem(596px);
+  z-index: 1;
+  user-select: none;
+  text-decoration: none;
+  color: inherit;
+  pointer-events: none;
+  opacity: 0;
+  &_active {
+    opacity: 1;
+    transition: opacity .35s ease-out;
+  }
+}
+
+.lineContainer {
+  width: rem(504px);
+  height: rem(44px);
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.line {
+  width: 100%;
+  transform-origin: 50% rem(-750px);
+  transform: rotate(39deg);
+  &_active {
+    transform: rotate(0);
+    transition: .35s transform .35s ease-out;
+  }
+}
+
+.slider {
+  position: absolute;
+  left: rem(200px);
+  top: rem(-10px);
+  width: rem(100px);
+  height: rem(100px);
+  transform-origin: 50% rem(-750px);
+  z-index: 2;
+  transition: opacity 0.15s;
+  opacity: 0;
+  &_active {
+    opacity: 1;
+    transition: .35s opacity .7s ease-out;
+  }
+}
+
+.link {
+  pointer-events: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: rem(70px);
+  width: 100%;
+  cursor: pointer;
+}
+
+.img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  user-select: none;
+  width: 100%;
+  display: none;
+  pointer-events: none;
+}
+
+.show {
+  display: block;
+}
+
+.info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: rem(18px);
+  line-height: rem(22px);
+  text-align: center;
+}
+
+.title {
+  font-size: inherit;
+  margin: 0;
+  font-weight: inherit;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.preloader {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 55%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .1s ease-out;
+  &_active {
+    opacity: 1;
+    transition: opacity .3s ease-out;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    bottom: 89px;
+  }
+
+  .lineContainer {
+    width: 272px;
+    display: flex;
+    align-items: center;
+  }
+
+  .line {
+    transform-origin: 50% rem(-404px);
+  }
+
+  .slider {
+    left: 86px;
+    top: -18px;
+    transform-origin: 50% rem(-404px);
+  }
+
+  .imgBlock {
+    width: 375px;
+    top: -300px;
+  }
+
+  .link {
+    top: -60px;
+    bottom: 262px;
+  }
+
+  .info {
+    margin-top: -14%;
+  }
+}

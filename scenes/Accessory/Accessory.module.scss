@@ -1,0 +1,147 @@
+@import "../../px-to-rem";
+
+.container {
+  padding: rem(194px) rem(65px) rem(60px);
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  box-sizing: border-box;
+  padding: 0 rem(90px);
+
+  &_product {
+    flex: 1 1 51.3%;
+    max-width: 51.3%;
+    padding-top: rem(22px);
+  }
+
+  &_info {
+    flex: 1 1 48.7%;
+    max-width: 48.7%;
+  }
+}
+
+.title {
+  font-family: "Amatic SC";
+  font-size: rem(70px);
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 0 rem(19px);
+}
+
+.info {
+}
+
+.price {
+  font-weight: 600;
+  font-size: rem(34px);
+  line-height: 1.23;
+  margin-bottom: rem(16px);
+}
+
+.buttonGroup {
+  display: flex;
+  margin-bottom: rem(44px);
+  margin-left: rem(-8px);
+}
+
+.button {
+  width: rem(189px);
+
+  &:not(:last-child) {
+    margin-right: rem(11px);
+  }
+}
+
+.desc {
+  margin-bottom: rem(26px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .col {
+    &_product {
+      flex: 1 1 100%;
+      max-width: 100%;
+      padding-top: 92px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &_info {
+      flex: 1 1 100%;
+      max-width: 100%;
+      padding: 0 37px;
+    }
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 13px;
+  }
+
+  .price {
+    font-size: 24px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .preloader {
+    padding: 60% 0 20%;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+    margin: 0;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: #E8EBEE;
+    padding: 13px 15px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.17);
+    transform: translateY(100%);
+    transition: transform .3s ease-out;
+
+    &_fixed {
+      transform: translateY(0);
+    }
+  }
+
+  .button {
+    &:first-child {
+      flex: 1 1 auto;
+      width: 1%;
+      margin-right: 0;
+    }
+
+    & > div {
+      //height: 43px;
+      text-align: center;
+      font-weight: 400;
+      color: #17B890;
+
+      & svg {
+        display: none;
+      }
+    }
+
+    & > a {
+      & > div {
+        //height: 45px;
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+@import "../../../../px-to-rem";
+
+$deg: 26deg;
+$scaleCenter: 1.3;
+$yIndent: rem(11px);
+$xIndent: rem(15px);
+
+.menu {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  &_cartMode {
+    & .line {
+      background: #8693AB;
+    }
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0 rem(50px) 0 0;
+}
+
+.item {
+  position: relative;
+  &:first-child {
+    & .line {
+      display: none;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: rem(36px);
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+    z-index: 1;
+    position: relative;
+  }
+
+  &:hover {
+    cursor: pointer;
+    & .subMenu {
+      pointer-events: auto;
+    }
+    @for $i from 1 through 7 {
+      & .subItem {
+        transform: translateY(0);
+        opacity: 1;
+        &:nth-child(#{$i}) {
+          transition: color .2s ease-out, .175s opacity .05s * ($i - 1) ease-out, .175s transform .05s * $i ease-out;
+        }
+      }
+    }
+  }
+
+  &_active {
+    & .line {
+      &_lt, &_rb {
+        transform: rotate(-$deg) scaleY(1);
+      }
+      &_ct, &_cb {
+        transform: scaleY($scaleCenter);
+      }
+      &_rt, &_lb {
+        transform: rotate($deg) scaleY(1);
+      }
+    }
+  }
+}
+
+.subMenu {
+  position: absolute;
+  top: 100%;
+  left: rem(3px);
+  padding-top: rem(11px);
+  font-size: rem(14px);
+  pointer-events: none;
+}
+
+@for $i from 1 through 7 {
+  .subItem {
+    line-height: rem(27px);
+    transform: translateY(10px);
+    opacity: 0;
+
+    &_active, &:hover {
+      color: #000;
+    }
+
+    &:nth-child(#{$i}) {
+      transition: color .2s ease-out, .175s opacity .05s * (7 - $i) ease-out, .175s transform .05s * (7 - $i) ease-out;
+    }
+  }
+}
+
+.decor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+}
+
+.line {
+  height: rem(12px);
+  width: rem(3px);
+  border-radius: rem(1.5px);
+  position: absolute;
+  left: 0;
+  background: #fff;
+  transition: transform .2s ease-out, background .2s ease-out;
+  &_lt, &_ct, &_rt {
+    bottom: $yIndent;
+    transform-origin: 50% 100%;
+  }
+  &_lt {
+    left: -$xIndent;
+    transform: rotate(-$deg) scaleY(0);
+  }
+  &_ct {
+    bottom: $yIndent * 1.15;
+    transform: scaleY(0);
+  }
+  &_rt {
+    left: $xIndent;
+    transform: rotate($deg) scaleY(0);
+  }
+  &_lb, &_cb, &_rb {
+    top: $yIndent;
+    transform-origin: 50% 0;
+  }
+  &_lb {
+    left: -$xIndent;
+    transform: rotate($deg) scaleY(0);
+  }
+  &_cb {
+    top: $yIndent * 1.15;
+    transform: scaleY(0);
+  }
+  &_rb {
+    left: $xIndent;
+    transform: rotate(-$deg) scaleY(0);
+  }
+}
+
+.cartLink {
+  padding: rem(10px);
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  position: fixed;
+  right: rem(41px);
+  top: rem(30px);
+  &_copy {
+    position: static;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+}
+
+.exit {
+  opacity: 1;
+}
+
+.exitActive {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .list {
+    position: fixed;
+    top: -70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    color: #A0AEB9;
+    display: block;
+    padding-top: 100px;
+    padding-bottom: 70px;
+    margin: 0;
+    transition: opacity .2s ease-out;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    transform: translateY(70px);
+  }
+
+  .item {
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    &:first-child {
+      & .line {
+        display: block;
+      }
+    }
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+    &_active {
+      color: #000;
+    }
+  }
+
+  .infoItem {
+    color: #A0AEB9;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 9px 0;
+    &First {
+      margin-top: 30px;
+    }
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  $k: 1.5;
+  $yIndent: 11px * $k;
+  $xIndent: 15px * $k;
+
+  .line {
+    background: #000;
+    height: 12px * $k;
+    width: 3px * $k;
+    border-radius: 1.5px * $k;
+    &_lt, &_ct, &_rt {
+      bottom: $yIndent;
+    }
+    &_lt {
+      left: -$xIndent;
+    }
+    &_ct {
+      bottom: $yIndent * 1.15;
+    }
+    &_rt {
+      left: $xIndent;
+    }
+    &_lb, &_cb, &_rb {
+      top: $yIndent;
+    }
+    &_lb {
+      left: -$xIndent;
+    }
+    &_cb {
+      top: $yIndent * 1.15;
+    }
+    &_rb {
+      left: $xIndent;
+    }
+  }
+
+  .menu {
+    flex-flow: row-reverse;
+  }
+
+  .cartLink {
+    padding: 16px;
+    right: 111px;
+    top: 10px;
+    margin: 0;
+  }
+
+  .dopMenu {
+
+  }
+}

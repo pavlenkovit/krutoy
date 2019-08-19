@@ -1,0 +1,41 @@
+@import "../../../../px-to-rem";
+
+.container {
+  display: flex;
+  margin-bottom: rem(27px);
+}
+
+.col {
+  &:not(:last-child) {
+    margin-right: rem(61px);
+  }
+}
+
+.link {
+  white-space: nowrap;
+  display: block;
+  color: inherit;
+  font-size: rem(12px);
+  letter-spacing: rem(1px);
+  line-height: 1.25;
+  margin-bottom: rem(15px);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity .2s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 15px;
+  }
+
+  .link {
+    text-decoration: underline;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+}

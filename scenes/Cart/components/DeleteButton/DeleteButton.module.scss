@@ -1,0 +1,9 @@
+@import "../../../../px-to-rem";
+
+.button {
+  background: none;
+  border: none;
+  color: #000;
+  padding: rem(8px);
+  cursor: pointer;
+}

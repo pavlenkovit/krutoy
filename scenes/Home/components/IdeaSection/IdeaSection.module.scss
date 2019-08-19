@@ -1,0 +1,52 @@
+@import "../../../../px-to-rem.scss";
+
+.container {
+  height: 100vh;
+  background: url(/static/img/content/about_pic1_head.jpg) center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.article {
+  margin-left: rem(120px);
+}
+
+.title {
+  font-family: "Amatic SC";
+  font-size: rem(70px);
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 0 rem(21px);
+}
+
+.content {
+  font-size: rem(24px);
+  line-height: 1.25;
+  margin-bottom: rem(43px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: 500px;
+    background-position: 75% 50%;
+    justify-content: center;
+  }
+
+  .article {
+    padding: 50px;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .title {
+    font-size: 50px;
+    margin-bottom: 17px;
+  }
+
+  .content {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}

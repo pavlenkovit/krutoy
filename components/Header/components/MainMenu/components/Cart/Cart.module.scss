@@ -1,0 +1,44 @@
+@import "../../../../../../px-to-rem";
+
+.container {
+  position: relative;
+  min-width: rem(17px);
+  text-align: center;
+  &_cartFull {
+    color: #000 !important;
+  }
+
+  &_menuIsActive {
+    color: #A0AEB9;
+  }
+}
+
+.highlight {
+  position: absolute;
+  bottom: rem(-4px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: rem(25px);
+  display: block;
+}
+
+.count {
+  &_active {
+    animation: activate .225s 2 ease-out alternate;
+  }
+}
+
+@keyframes activate {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(rem(-5px));
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+
+  }
+}

@@ -1,0 +1,227 @@
+@import "../../px-to-rem";
+
+.main {
+  padding-top: rem(145px);
+  margin-bottom: rem(70px);
+}
+
+.mainTitle {
+  font-family: "Amatic SC";
+  font-size: rem(70px);
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 0 rem(71px);
+  text-align: center;
+}
+
+.container {
+  padding: 0 rem(170px);
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: rem(14px);
+  line-height: 1.42;
+  font-family: 'Rubik', sans-serif;
+
+  & tr {
+    & td {
+      border-bottom: 1px solid #8693AB;
+    }
+  }
+
+  & td, & th {
+    text-align: left;
+    font-weight: 400;
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  & td {
+    padding: 0 0 rem(18px);
+  }
+}
+
+.product {
+  display: flex;
+  align-items: center;
+}
+
+.imgWrap {
+  width: rem(100px);
+  height: rem(100px);
+  position: relative;
+  margin-right: rem(21px);
+  margin-top: rem(18px);
+  & img {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  &_disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.count {
+  min-width: rem(30px);
+  text-align: center;
+}
+
+.itemPrice {
+  font-weight: 500;
+  width: rem(80px);
+  display: inline-block;
+}
+
+.titleWrapper {
+  position: relative;
+}
+
+.brand {
+  position: absolute;
+  bottom: rem(-25px);
+}
+
+.productTitle {
+  font-weight: 400;
+  font-size: inherit;
+  margin: 0;
+}
+
+.total {
+  margin-top: rem(18.5px);
+  margin-bottom: rem(40px);
+  text-align: right;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+}
+
+.totalTitle {
+  margin-bottom: rem(15px);
+  font-size: rem(14px);
+}
+
+.totalPrice {
+  font-size: rem(33px);
+  font-weight: 500;
+  line-height: 0.75;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+.trExit {
+  opacity: 1;
+}
+.trExitActive {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s ease-out;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 92px;
+    margin-bottom: 45px;
+  }
+
+  .mainTitle {
+    margin-bottom: 45px;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  .table {
+    tr {
+      td {
+        padding-bottom: 0;
+        &:not(.tdFooter) {
+          border-bottom: none;
+        }
+      }
+      &:last-child {
+        & td {
+          border-bottom: none !important;
+        }
+      }
+    }
+  }
+
+  .product {
+    align-items: flex-start;
+  }
+
+  .titleWrapper {
+    margin-top: 27px;
+  }
+
+  .deleteButton {
+    margin-right: -6px;
+  }
+
+  .imgWrap {
+    width: 67px;
+    height: 67px;
+    margin-right: 13px;
+    margin-top: 19px;
+  }
+
+  .brand {
+    position: static;
+    display: inline-block;
+    margin-left: 0.25em;
+  }
+
+  .counter {
+    margin-top: 6px;
+    margin-bottom: 22px;
+    &_disabled {
+      display: none;
+    }
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .count {
+    min-width: 40px;
+  }
+
+  .tdPrice {
+    vertical-align: top;
+  }
+
+  .itemPrice {
+    margin-top: 27px;
+  }
+
+  .total {
+    text-align: center;
+    margin: 26px 0;
+  }
+}

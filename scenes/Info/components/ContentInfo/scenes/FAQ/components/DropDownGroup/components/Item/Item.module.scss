@@ -1,0 +1,48 @@
+@import "../../../../../../../../../../px-to-rem";
+
+.container {
+  margin-bottom: rem(6px);
+}
+
+.question {
+  border-radius: rem(3px);
+  background-color: #9499A4;
+  color: #fff;
+  font-size: rem(14px);
+  padding: rem(9.5px) rem(17px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  &_open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    & .icon {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.icon {
+  width: rem(12px);
+  stroke-width: 2;
+  overflow: visible;
+  margin-right: rem(11px);
+  transition: transform .3s ease-out;
+}
+
+.content {
+  border-radius: 0 0 rem(3px) rem(3px);
+  background-color: #E8EBEE;
+  transition: height .3s ease-out;
+  overflow: hidden;
+  & a {
+    color: inherit;
+  }
+}
+
+.innerContent {
+  color: #000;
+  padding: rem(28px) rem(40px) rem(26px);
+  font-size: rem(14px);
+  line-height: 1.28;
+}

@@ -1,0 +1,50 @@
+@import "../../../../px-to-rem";
+
+.container {
+  border: 1px solid #A0AEB9;
+  border-radius: 5px;
+  transition: border .2s ease-out;
+}
+
+.containerInvalid {
+  border-color: #E36397;
+}
+
+.item {
+  padding: rem(14px) rem(13px) rem(14px) rem(20px);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: rem(14px);
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #A0AEB9;
+  }
+}
+
+.itemActive {
+  & .button {
+    border: solid rem(8px) #A0AEB9;
+  }
+}
+
+.button {
+  width: rem(23px);
+  height: rem(23px);
+  border: solid 1px #A0AEB9;
+  box-sizing: border-box;
+  border-radius: 50%;
+  transition: border .2s ease-out;
+  margin-right: rem(14px);
+}
+
+.title {
+  flex: 1 1 auto;
+  width: 1%;
+}
+
+.price {
+  margin-left: rem(14px);
+  //font-family: 'Rubik';
+  color: #000;
+}

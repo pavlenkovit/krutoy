@@ -1,0 +1,13 @@
+@import "../../../../../../../../px-to-rem";
+
+.container {
+  max-width: rem(732px);
+  margin-bottom: rem(38px);
+}
+
+.title {
+  margin-bottom: rem(15px);
+  font-size: rem(16px);
+  font-weight: 700;
+  line-height: 1.43;
+}

@@ -1,0 +1,11 @@
+@import "../../../../px-to-rem";
+
+.formGroup {
+  margin-bottom: rem(23px);
+}
+
+.title {
+  margin-bottom: rem(5px);
+  font-size: rem(14px);
+  line-height: 1.21;
+}

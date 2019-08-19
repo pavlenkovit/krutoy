@@ -1,0 +1,46 @@
+@import "../../../../px-to-rem";
+
+.rowForm {
+  display: flex;
+  margin: 0 rem(-6px);
+}
+
+.colForm {
+  flex: 0 0 50%;
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 0 rem(6px);
+}
+
+.footer {
+  color: #fff;
+  padding-top: rem(17px);
+}
+
+.footerInner {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  font-size: rem(14px);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .rowForm {
+    flex-wrap: wrap;
+  }
+
+  .colForm {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

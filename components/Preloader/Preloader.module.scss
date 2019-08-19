@@ -1,0 +1,43 @@
+@import "../../px-to-rem";
+
+.container {
+  position: relative;
+}
+
+.svg {
+  width: rem(120px);
+  display: block;
+  animation: figureAnimation 1.35s infinite ease-in-out alternate;
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  left: rem(34px);
+  height: 1px;
+  width: rem(67px);
+  background: #fff;
+  animation: lineAnimation 1.5s infinite ease-in-out alternate;
+}
+
+@keyframes figureAnimation {
+  0% {
+    transform: rotate(0);
+    transform-origin: 28.3% 98.8%;
+  }
+
+  100% {
+    transform: rotate(28.5deg);
+    transform-origin: 53.5% 94%;
+  }
+}
+
+@keyframes lineAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(rem(-8px));
+  }
+}

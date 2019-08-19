@@ -1,0 +1,49 @@
+@import "../../../../px-to-rem";
+
+.container {
+  display: flex;
+  margin: rem(-10px) 0 0 rem(-10px);
+  align-items: center;
+}
+
+.link {
+  padding: rem(10px);
+  opacity: 0.75;
+  transition: opacity .2s ease-out;
+
+  &:not(:last-child) {
+    margin-right: rem(20px);
+  }
+
+  & svg {
+    display: block;
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &_disabled {
+    &:hover {
+      opacity: 0.75;
+      cursor: default;
+    }
+  }
+}
+
+.instagram {
+  width: rem(26px);
+}
+
+.facebook {
+  width: rem(13px);
+}
+
+.vkontakte {
+  width: rem(36px);
+}
+
+.pinterest {
+  width: rem(21px);
+}

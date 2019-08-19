@@ -1,0 +1,38 @@
+@import "../../../../px-to-rem";
+
+.link {
+  display: flex;
+  align-items: flex-end;
+}
+
+.logo {
+  width: rem(64px);
+  margin-right: rem(15px);
+
+  & svg {
+    width: 100%;
+    display: block;
+  }
+}
+
+.text {
+  width: rem(157px);
+  margin-bottom: rem(5px);
+
+  & svg {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 54px;
+    margin-right: 12px;
+  }
+
+  .text {
+    width: 126px;
+    margin-bottom: 4px;
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../px-to-rem";
+
+.container {
+  padding: rem(191px) rem(265px) rem(60px) rem(156px);
+  & h1 {
+    font-size: rem(24px);
+    margin-bottom: rem(24px);
+    margin-top: 0;
+  }
+  & p {
+    margin: rem(24px) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 100px 37px 40px;
+  }
+}

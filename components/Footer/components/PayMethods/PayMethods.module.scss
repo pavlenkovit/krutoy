@@ -1,0 +1,35 @@
+@import "../../../../px-to-rem";
+
+.container {
+  display: flex;
+  margin-bottom: rem(5px);
+}
+
+.item {
+  margin-bottom: rem(20px);
+
+  &:not(:last-child) {
+    margin-right: rem(20px);
+  }
+
+  & svg {
+    width: 100%;
+    display: block;
+  }
+}
+
+.applePay {
+  width: rem(48px);
+}
+
+.googlePay {
+  width: rem(50px);
+}
+
+.visa {
+  width: rem(49px);
+}
+
+.masterCard {
+  width: rem(99px);
+}

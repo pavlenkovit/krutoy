@@ -1,0 +1,34 @@
+$transition-bg: .2s;
+
+.container {
+  overflow-x: hidden;
+  transition: background $transition-bg ease-out;
+  &_cart {
+    color: #a0aeb9;
+  }
+}
+
+.content {
+  min-height: 100vh;
+  position: relative;
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+}
+
+.exit {
+  opacity: 1;
+}
+
+.exitActive {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+
+}

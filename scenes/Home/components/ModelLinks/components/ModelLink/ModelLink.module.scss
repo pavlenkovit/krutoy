@@ -1,0 +1,53 @@
+@import "../../../../../../px-to-rem";
+
+.item {
+  pointer-events: auto;
+  &_disabled {
+    pointer-events: none;
+    & .link {
+      padding: rem(50px) rem(140px);
+      opacity: 0;
+    }
+  }
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  padding: rem(50px) rem(41px);
+  font-family: 'Amatic SC';
+  font-size: rem(103px);
+  letter-spacing: rem(-3.02px);
+  line-height: rem(130px);
+  display: block;
+  opacity: 0.5;
+  transition: opacity .2s ease-out;
+  display: block;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.title {
+  transition: transform .2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .item {
+    &_disabled {
+      max-width: 80px;
+      overflow: hidden;
+      & .link {
+        padding: 0;
+        transition: opacity .2s ease-out;
+        opacity: 0;
+      }
+    }
+  }
+
+  .link {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

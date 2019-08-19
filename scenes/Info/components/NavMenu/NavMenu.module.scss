@@ -1,0 +1,34 @@
+@import "../../../../px-to-rem";
+
+.menu {
+  margin-bottom: rem(46px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  color: inherit;
+  line-height: 1.8;
+  text-decoration: none;
+  margin-bottom: rem(6px);
+  white-space: nowrap;
+  &:not(:last-child) {
+    margin-right: rem(64px);
+  }
+}
+
+.active {
+  color: #DBDEE3;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    margin-bottom: 30px;
+  }
+
+  .item {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}

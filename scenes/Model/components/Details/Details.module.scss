@@ -1,0 +1,63 @@
+@import "../../../../px-to-rem";
+
+.container {
+  margin-bottom: rem(36px);
+}
+
+.table {
+  border-collapse: collapse;
+  min-width: rem(392px);
+
+  &:not(:first-child) {
+    margin-top: -1px;
+  }
+
+  td {
+    border: solid 1px #fff;
+    box-sizing: border-box;
+    padding: rem(13px) rem(11px) rem(12px) rem(15px);
+    vertical-align: middle;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  margin-right: rem(10px);
+
+  &_sizes {
+    width: rem(26px);
+  }
+
+  &_weight {
+    width: rem(26px);
+  }
+
+  &_material {
+    width: rem(26px);
+  }
+
+  &_key {
+    width: rem(25px);
+  }
+
+  &_details {
+    width: rem(25px);
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    width: 100%;
+    min-width: auto;
+    font-size: 14px;
+    line-height: 1.15;
+    td {
+      padding: 9px 6px 8px 8px;
+    }
+  }
+}

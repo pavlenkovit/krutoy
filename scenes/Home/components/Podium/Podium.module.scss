@@ -1,0 +1,115 @@
+@import "../../../../px-to-rem";
+
+$transition-bg: .2s;
+
+.podium {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+  height: rem(120px);
+  z-index: 2;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: background $transition-bg ease-out;
+}
+
+.block {
+  width: rem(300px);
+  height: rem(87px);
+  position: relative;
+  transition: background $transition-bg ease-out;
+
+  & .inner {
+    left: 0;
+    position: absolute;
+    transition: border-color $transition-bg ease-out;
+  }
+}
+
+.center {
+  max-width: 22%;
+  flex: 0 0 22%;
+  z-index: 5;
+}
+
+.first {
+  max-width: 20%;
+  flex: 0 0 20%;
+  z-index: 2;
+
+  & .inner {
+    top: rem(-3px);
+    border: rem(3px) solid transparent;
+  }
+}
+
+.second {
+  height: rem(90px);
+  max-width: 14%;
+  flex: 0 0 14%;
+  z-index: 3;
+
+  & .inner {
+    top: rem(-6px);
+    border: rem(6px) solid transparent;
+  }
+}
+
+.last {
+  height: rem(96px);
+  max-width: 5%;
+  flex: 0 0 5%;
+  z-index: 4;
+
+  & .inner {
+    top: rem(-8px);
+    border: rem(8px) solid transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .block {
+    height: 107px;
+  }
+
+  .podium {
+    width: 120%;
+    left: -10%;
+    height: 140px;
+  }
+
+  .back {
+    width: 300%;
+  }
+
+  .center {
+    max-width: 60%;
+    flex: 0 0 60%;
+  }
+
+  .first {
+    max-width: 20%;
+    flex: 0 0 20%;
+  }
+
+  .second {
+    display: none;
+  }
+
+  .last {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+@import "../../px-to-rem";
+
+.container {
+  padding: rem(199px) rem(155px) rem(60px);
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  margin: 0 rem(-25px);
+}
+
+.formWrap {
+  flex: 0 0 58%;
+  max-width: 58%;
+  padding: 0 rem(25px);
+  box-sizing: border-box;
+}
+
+.cartWrap {
+  flex: 0 0 42%;
+  max-width: 42%;
+  padding: 0 rem(25px);
+  box-sizing: border-box;
+}
+
+.formContainer {
+  background: #fff;
+  padding: rem(37px) rem(40px);
+  border: 1px solid #DEE2E6;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 109px 0 0;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .formWrap {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .cartWrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+  }
+
+  .formContainer {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}

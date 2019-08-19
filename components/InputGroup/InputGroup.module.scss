@@ -1,0 +1,60 @@
+@import "../../px-to-rem";
+
+.inputGroup {
+  position: relative;
+  &:not(:last-child) {
+    margin-bottom: rem(13px);
+  }
+  &.active {
+    & .label {
+      transform: translateY(rem(7px));
+      font-size: rem(12px);
+    }
+  }
+}
+.input {
+  border: 1px solid #A0AEB9;
+  outline: none;
+  border-radius: rem(5px);
+  color: #000;
+  font-size: rem(14px);
+  padding: rem(22px) rem(20px) rem(8px);
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.21;
+  transition: border .2s ease-out;
+  &:focus {
+    & + .label {
+      transform: translateY(rem(7px));
+      font-size: rem(12px);
+    }
+  }
+  &.dark {
+    background: none;
+    border-color: #9499A4;
+    color: #fff;
+    & + .label {
+      color: #DBDEE3;
+    }
+  }
+}
+
+.invalid {
+  border-color: #E36397 !important;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  transform: translateY(rem(14px));
+  left: rem(20px);
+  pointer-events: none;
+  line-height: 1.18;
+  transition: transform .2s ease-out, font-size .2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .label {
+    transform: translateY(17px);
+  }
+}

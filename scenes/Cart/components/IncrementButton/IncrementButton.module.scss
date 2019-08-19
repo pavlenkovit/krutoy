@@ -1,0 +1,29 @@
+@import "../../../../px-to-rem";
+
+.button {
+  background: none;
+  border: none;
+  color: #000;
+  padding: rem(8px);
+  cursor: pointer;
+  margin-right: rem(13px);
+  outline: none;
+}
+
+.svg {
+  width: rem(15px);
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .button {
+    background-color: rgba(255,255,255,0.42);
+    border-radius: 50%;
+    margin-right: 0;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

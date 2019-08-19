@@ -1,0 +1,68 @@
+@import "../../../../px-to-rem";
+
+.container {
+  margin-bottom: rem(19px);
+  display: flex;
+}
+
+.inner {
+  display: flex;
+  position: relative;
+}
+
+.title {
+  font-family: "Amatic SC";
+  font-size: rem(70px);
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45%);
+  height: rem(62px);
+  width: rem(62px);
+  &:hover {
+    & .linkInner {
+      background: rgba(255,255,255, 0.4);
+      transform: scale(0.8);
+    }
+  }
+}
+
+.prev {
+  left: rem(-65px);
+}
+
+.next {
+  right: rem(-65px);
+  & .arrow {
+    transform: translateX(15%) rotate(180deg);
+  }
+}
+
+.linkInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background .2s ease-out, transform .2s ease-out;
+}
+
+.arrow {
+  width: rem(19px);
+  transform: translateX(-15%);
+}
+
+@media (max-width: 768px) {
+  .container {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

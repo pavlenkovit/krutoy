@@ -1,0 +1,70 @@
+@import "../../px-to-rem";
+
+$transition-bg: .2s;
+
+.container {
+  transition: background $transition-bg ease-out;
+}
+
+.firstScreen {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.button {
+  font-family: 'Amatic SC', sans-serif;
+  height: 100%;
+  font-size: rem(30px);
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity .2s;
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.buttonSvg {
+  width: rem(9px);
+  margin: rem(3px) 0 0 rem(8px);
+}
+
+.faqLink {
+  width: rem(34px);
+  position: fixed;
+  left: rem(42px);
+  bottom: rem(33px);
+  display: block;
+  z-index: 10;
+  transition: opacity .2s ease-out;
+  &:hover {
+    & .faqSvg {
+      opacity: 1;
+    }
+  }
+  &_hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.faqSvg {
+  width: 100%;
+  opacity: 0.7;
+  display: block;
+  transition: opacity .2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .firstScreen {
+    min-height: 610px;
+  }
+
+  .faqLink {
+    left: 17px;
+    bottom: 24px;
+  }
+}

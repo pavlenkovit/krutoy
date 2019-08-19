@@ -1,0 +1,23 @@
+@import "../../../../px-to-rem";
+
+.accessoriesLink {
+  display: inline-block;
+  opacity: 0.7;
+  transition: opacity .2s ease-out;
+  margin-left: rem(15px);
+  padding: rem(9px);
+
+  & svg {
+    width: rem(27px);
+    height: rem(27px);
+    display: block;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+}
