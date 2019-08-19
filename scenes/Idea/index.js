@@ -1,1 +1,1 @@
-export { default } from './Idea.container';
+export { default } from './Idea';

@@ -20,20 +20,13 @@ class CartStep extends PureComponent {
   }
 
   componentDidMount() {
-    const { changePage } = this.props;
     this.getData();
-    changePage('/cart');
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.step === 3) {
       this.setState({ showPrice: true });
     }
-  }
-
-  componentWillUnmount() {
-    const { changePage } = this.props;
-    changePage(null);
   }
 
   getData = () => {

@@ -128,14 +128,14 @@ class Button extends PureComponent {
   };
 
   render() {
-    const { href } = this.props;
+    const { href, as } = this.props;
 
     if (!href) {
       return this.renderContent();
     }
 
     return (
-      <Link href={href}>
+      <Link href={href} as={as ? as : href}>
         <a className={css.link}>
           {this.renderContent()}
         </a>
@@ -153,6 +153,7 @@ Button.defaultProps = {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
+  as: PropTypes.string,
   withBorder: PropTypes.bool,
   w100: PropTypes.bool,
   handleClick: PropTypes.func,

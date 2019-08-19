@@ -9,8 +9,8 @@ import MasterCardIcon from '../../../../icons/MasterCardIcon';
 import css from './PayMethods.module.scss';
 
 const PayMethods = (props) => {
-  const { cartMode } = props;
-  const color = cartMode ? '#9faeb9' : '#fff';
+  const { isCart } = props;
+  const color = isCart ? '#9faeb9' : '#fff';
   return (
     <div className={css.container}>
       <div className={cn(css.item, css.applePay)}>
@@ -30,7 +30,7 @@ const PayMethods = (props) => {
 };
 
 PayMethods.propTypes = {
-  cartMode: PropTypes.bool.isRequired,
+  isCart: PropTypes.bool.isRequired,
 };
 
 export default PayMethods;

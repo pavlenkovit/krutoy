@@ -2,11 +2,11 @@ export default [
   [
     {
       title: 'Пользовательское соглашение',
-      href: '/info/terms-of-use',
+      id: 'terms-of-use',
     },
     {
       title: 'Политика конфиденциальности',
-      href: '/info/privacy-policy',
+      id: 'privacy-policy',
     },
   ],
 ];

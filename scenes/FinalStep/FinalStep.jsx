@@ -5,15 +5,9 @@ import MessageArea from '../../components/MessageArea';
 
 class FinalStep extends PureComponent {
   componentDidMount() {
-    const { changePage, resetAll, changeStep } = this.props;
-    changePage('/cart');
+    const { resetAll, changeStep } = this.props;
     resetAll();
     changeStep(1);
-  }
-
-  componentWillUnmount() {
-    const { changePage } = this.props;
-    changePage(null);
   }
 
   render() {
@@ -34,7 +28,6 @@ class FinalStep extends PureComponent {
 }
 
 FinalStep.propTypes = {
-  changePage: PropTypes.func.isRequired,
   resetAll: PropTypes.func.isRequired,
   changeStep: PropTypes.func.isRequired,
 };

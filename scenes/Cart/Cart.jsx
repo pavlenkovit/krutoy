@@ -11,16 +11,6 @@ import DeleteButton from './components/DeleteButton';
 import MessageArea from '../../components/MessageArea';
 
 class Cart extends PureComponent {
-  componentDidMount() {
-    const { changePage } = this.props;
-    changePage('/cart');
-  }
-
-  componentWillUnmount() {
-    const { changePage } = this.props;
-    changePage(null);
-  }
-
   increment = id => () => {
     const { incrementProduct } = this.props;
     incrementProduct(id);

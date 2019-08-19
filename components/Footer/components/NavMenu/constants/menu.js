@@ -2,29 +2,29 @@ export default [
   [
     {
       title: 'Доставка и возврат',
-      href: '/info/delivery',
+      id: 'delivery',
     },
     {
       title: 'Гарантия',
-      href: '/info/warranty',
+      id: 'warranty',
     },
     {
       title: 'Инструкция и сборка',
-      href: '/info/construct',
+      id: 'construct',
     },
   ],
   [
     {
       title: 'Пользовательское соглашение',
-      href: '/info/terms-of-use',
+      id: 'terms-of-use',
     },
     {
       title: 'Политика конфиденциальности',
-      href: '/info/privacy-policy',
+      id: 'privacy-policy',
     },
     {
       title: 'Вопросы и ответы',
-      href: '/info/faq',
+      id: 'faq',
     },
   ],
 ];

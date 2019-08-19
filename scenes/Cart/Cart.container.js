@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changePage, incrementProduct, decrementProduct, removeFromCart, changeStep } from '../../store/actions';
+import { incrementProduct, decrementProduct, removeFromCart, changeStep } from '../../store/actions';
 import Cart from './Cart';
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,6 @@ const mapStateToProps = (state) => {
   return { products, total, isMobile };
 };
 
-const actionCreators = { changePage, changeStep, incrementProduct, decrementProduct, removeFromCart };
+const actionCreators = { changeStep, incrementProduct, decrementProduct, removeFromCart };
 
 export default connect(mapStateToProps, actionCreators)(Cart);

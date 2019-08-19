@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Header.module.scss';
 import MainMenu from './components/MainMenu';
 import Logo from './components/Logo';
@@ -11,9 +10,6 @@ const Header = () => {
       <MainMenu />
     </header>
   );
-};
-
-Header.propTypes = {
 };
 
 export default Header;

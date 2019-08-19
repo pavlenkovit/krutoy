@@ -14,16 +14,10 @@ class Accessory extends PureComponent {
   state = { isScrolled: false };
 
   componentDidMount() {
-    const { changePage } = this.props;
-    changePage('/accessories');
-
     window.addEventListener('scroll', this.stickyButtons);
   }
 
   componentWillUnmount() {
-    const { changePage } = this.props;
-    changePage(null);
-
     window.removeEventListener('scroll', this.stickyButtons);
   }
 

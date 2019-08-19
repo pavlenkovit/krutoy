@@ -16,10 +16,8 @@ class Model extends PureComponent {
   state = { isLoading: true, isScrolled: false };
 
   componentDidMount() {
-    const { changePage } = this.props;
-    changePage('/model');
-    this.getData();
-
+    const { model } = this.props;
+    this.loadImages(model.gallery3d);
     window.addEventListener('scroll', this.stickyButtons);
   }
 
@@ -28,21 +26,11 @@ class Model extends PureComponent {
   }
 
   componentWillUnmount() {
-    const { changeColor, changePage, changeModel } = this.props;
-    changeColor(null);
-    changePage(null);
-    changeModel(null);
-
     window.removeEventListener('scroll', this.stickyButtons);
   }
 
   stickyButtons = () => {
     this.setState({ isScrolled: window.scrollY > 20 && window.scrollY < document.body.clientHeight - window.innerHeight - 20 });
-  };
-
-  getData = () => {
-    const { model } = this.props;
-    this.loadImages(model.gallery3d);
   };
 
   loadImages = (gallery3d) => {
@@ -152,12 +140,7 @@ class Model extends PureComponent {
 
 Model.propTypes = {
   id: PropTypes.string,
-  changeColor: PropTypes.func,
-  changeModel: PropTypes.func,
-  changePage: PropTypes.func,
   addToCart: PropTypes.func.isRequired,
-  match: PropTypes.object,
-  history: PropTypes.object,
   products: PropTypes.array,
   isMobile: PropTypes.bool,
 };

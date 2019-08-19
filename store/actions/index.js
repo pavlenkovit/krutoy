@@ -1,10 +1,6 @@
 import { createAction } from 'redux-actions';
 
 export const onLoadApp = createAction('ON_LOAD_APP');
-export const changeColor = createAction('CHANGE_COLOR', color => ({ color }));
-export const changePage = createAction('CHANGE_PAGE', activePage => ({ activePage }));
-export const changeModel = createAction('CHANGE_MODEL', id => ({ id }));
-//export const changeMode = createAction('CHANEGE_MODE', isCart => {{ isCart }});
 
 export const toggleMenu = createAction('TOGGLE_MENU');
 export const closeMenu = createAction('CLOSE_MENU');

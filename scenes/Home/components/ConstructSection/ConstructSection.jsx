@@ -13,7 +13,7 @@ class ConstructSection extends PureComponent {
             <div className={css.content}>
               Конструкция наших игрушек продумана до мелочей. Сборка не составит труда и не займет много времени. Руководствуясь проиллюстрированной инструкцией, это сможет сделать любой взрослый.
             </div>
-            <Button href="/info/construct">Собрать, легко!</Button>
+            <Button href="/info?id=construct" as="/info/construct">Собрать, легко!</Button>
           </article>
         </div>
       </section>

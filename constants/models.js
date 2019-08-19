@@ -5,6 +5,7 @@ export default [
     description: 'Наш лось не бодается, не убегает в лес и не ест соль.',
     top: 14,
     topM: 10,
+    color: 'rgb(170, 195, 191)',
   },
   {
     id: 'donkey',
@@ -12,6 +13,7 @@ export default [
     description: 'Этот ослик совсем не упрямый и его не нужно заманивать морковкой.',
     top: 14,
     topM: 10,
+    color: '#97b5c5',
   },
   {
     id: 'ram',
@@ -19,6 +21,7 @@ export default [
     description: 'У нашего барашка есть свой нрав. Тем не менее, он не просто милый, а очень милый!',
     top: 10,
     topM: 8,
+    color: 'rgb(130, 167, 166)',
   },
   {
     id: 'elephant',
@@ -26,6 +29,7 @@ export default [
     description: 'Говорят, что слон неповоротливое животное. Только не этот!',
     top: 13,
     topM: 9,
+    color: 'rgb(213, 162, 156)',
   },
   {
     id: 'giraffe',
@@ -33,6 +37,7 @@ export default [
     description: 'Настоящее сафари у вас дома? Не вопрос!',
     top: -6,
     topM: -2,
+    color: '#e6af7a',
   },
   {
     id: 'unicorn',
@@ -40,6 +45,7 @@ export default [
     description: 'Они бывают только в сказках? Как бы не так!',
     top: 9,
     topM: 9,
+    color: '#95be9e',
   },
   {
     id: 'horse',
@@ -47,5 +53,6 @@ export default [
     description: 'Кто из животных больше всего любит катать людей? Конечно лошадка!',
     top: 6,
     topM: 7,
+    color: '#c9b1bd'
   },
 ];

@@ -18,25 +18,26 @@ class Footer extends PureComponent {
   }
 
   render() {
-    const { cartMode, isMobile } = this.props;
+    const { isMobile, router: { route } } = this.props;
+    const isCart = route === '/cart';
     const { isShowMail } = this.state;
 
     return (
       <footer id="footer" className={css.container}>
         <div className={css.row}>
           <div className={css.col}>
-            <Logo cartMode={cartMode} />
+            <Logo isCart={isCart} />
           </div>
           <div className={css.col}>
             <Sidebar title={!isMobile ? 'Помощь' : ''}>
               <NavMenu isMobile={isMobile} />
-              {!isMobile && <PayMethods cartMode={cartMode} />}
-              <Info cartMode={cartMode} />
+              {!isMobile && <PayMethods isCart={isCart} />}
+              <Info isCart={isCart} />
             </Sidebar>
           </div>
           <div className={css.col}>
             <Sidebar title="Давайте дружить">
-              <SocialLinks cartMode={cartMode} />
+              <SocialLinks isCart={isCart} />
             </Sidebar>
             <Sidebar
               title={(
@@ -44,7 +45,7 @@ class Footer extends PureComponent {
                   <span className={css.title}>Давайте работать</span>
                   <span className={css.mail}>hello@krutoy.store</span>
                   <svg className={css.arrow} viewBox="0 0 17 10" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke={cartMode ? '#9faeb9' : '#fff'} strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+                    <g stroke={isCart ? '#9faeb9' : '#fff'} strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M1 5h13.26M11.903 1l4 4-4 4" />
                     </g>
                   </svg>
@@ -59,7 +60,6 @@ class Footer extends PureComponent {
 }
 
 Footer.propTypes = {
-  cartMode: PropTypes.bool.isRequired,
   isMobile: PropTypes.bool.isRequired,
 };
 

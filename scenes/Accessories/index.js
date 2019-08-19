@@ -1,1 +1,1 @@
-export { default } from './Accessories.container';
+export { default } from './Accessories';

@@ -17,12 +17,12 @@ class Cart extends PureComponent {
   }
 
   render() {
-    const { count, cartMode, menuIsActive } = this.props;
+    const { count, isCart, menuIsActive } = this.props;
 
-    let color = cartMode ? '#8693AB' : '#fff';
+    let color = isCart ? '#8693AB' : '#fff';
     color = menuIsActive ? '#A0AEB9' : color;
     const classesCart = cn(css.container, {
-      [css.container_cartMode]: cartMode,
+      [css.container_cartMode]: isCart,
       [css.container_cartFull]: count > 0,
       [css.container_menuIsActive]: menuIsActive,
     });
@@ -48,7 +48,7 @@ class Cart extends PureComponent {
 
 Cart.propTypes = {
   count: PropTypes.number.isRequired,
-  cartMode: PropTypes.bool.isRequired,
+  isCart: PropTypes.bool.isRequired,
   menuIsActive: PropTypes.bool.isRequired,
 };
 

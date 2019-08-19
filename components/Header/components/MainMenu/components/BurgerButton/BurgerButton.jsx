@@ -6,9 +6,9 @@ import css from './BurgerButton.module.scss';
 
 class BurgerButton extends PureComponent {
   render() {
-    const { handleClick, isActive, cartMode } = this.props;
+    const { handleClick, isActive, isCart } = this.props;
     const classesButton = cn(css.button, {
-      [css.button_cartMode]: cartMode,
+      [css.button_cartMode]: isCart,
       [css.button_active]: isActive,
     });
 
@@ -24,7 +24,7 @@ class BurgerButton extends PureComponent {
 BurgerButton.propTypes = {
   isActive: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
-  cartMode: PropTypes.bool.isRequired,
+  isCart: PropTypes.bool.isRequired,
 };
 
 export default BurgerButton;

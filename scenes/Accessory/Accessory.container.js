@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { addToCart, changePage } from '../../store/actions';
+import { addToCart } from '../../store/actions';
 import Accessory from './Accessory';
 
-const actionCreators = { changePage, addToCart };
+const actionCreators = { addToCart };
 
 const mapStateToProps = (state) => {
   const { products } = state.cart;

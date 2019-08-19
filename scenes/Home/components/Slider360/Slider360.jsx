@@ -166,7 +166,7 @@ class Slider360 extends PureComponent {
                 <img key={idx} className={classesImage} src={src} alt="" />
               );
             })}
-            <Link to={`/model/${id}`}>
+            <Link href={`/model?id=${id}`} as={`/model/${id}`}>
               <a className={styles.link} />
             </Link>
           </div>

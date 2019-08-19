@@ -11,8 +11,8 @@ import VkontakteIcon from '../../../../icons/VkontakteIcon';
 
 const SocialLinks = (props) => {
 
-  const { cartMode } = props;
-  const color = cartMode ? '#9faeb9' : '#fff';
+  const { isCart } = props;
+  const color = isCart ? '#9faeb9' : '#fff';
 
   return (
     <div className={css.container}>
@@ -33,7 +33,7 @@ const SocialLinks = (props) => {
 };
 
 SocialLinks.propTypes = {
-  cartMode: PropTypes.bool.isRequired,
+  isCart: PropTypes.bool.isRequired,
 };
 
 export default SocialLinks;

@@ -6,8 +6,8 @@ import LogoIcon from '../../../../icons/LogoIcon';
 import css from './Logo.module.scss';
 
 const Logo = (props) => {
-  const { cartMode } = props;
-  const color = cartMode ? '#9faeb9' : '#fff';
+  const { isCart } = props;
+  const color = isCart ? '#9faeb9' : '#fff';
 
   return (
     <Link href="/">
@@ -40,7 +40,7 @@ const Logo = (props) => {
 };
 
 Logo.propTypes = {
-  cartMode: PropTypes.bool.isRequired,
+  isCart: PropTypes.bool.isRequired,
 };
 
 export default Logo;

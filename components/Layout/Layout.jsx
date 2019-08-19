@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
+import { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../style.scss';
+import models from '../../constants/models';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Layout.module.scss';
 
@@ -12,10 +14,8 @@ import Loader from '../Loader';
 
 class Layout extends PureComponent {
   state = {
-    // isLoading: true,
-    // timeRuns: true,
-    isLoading: false,
-    timeRuns: false, // TODO: вернуть true
+    isLoading: true,
+    timeRuns: true,
   };
 
   componentDidMount() {
@@ -47,16 +47,24 @@ class Layout extends PureComponent {
   };
 
   render() {
-    const { children, color, cartMode } = this.props;
+    const { children, router: { route, query: { id } } } = this.props;
     const { isLoading, timeRuns } = this.state;
+    const isCart = route === '/cart';
+
+    let color = null;
+    if (route === '/model') {
+      color = models.find(model => model.id === id).color;
+    }
+
+
     let background = color || '#B5BAC6';
 
-    if (cartMode) {
+    if (isCart) {
       background = '#E8EBEE';
     }
 
     const layoutClasses = cn(styles.container, {
-      [styles.container_cart]: cartMode,
+      [styles.container_cart]: isCart,
     });
 
     return (
@@ -89,8 +97,6 @@ class Layout extends PureComponent {
 Layout.propTypes = {
   children: PropTypes.node,
   checkIsMobile: PropTypes.func,
-  color: PropTypes.string,
-  cartMode: PropTypes.bool.isRequired,
 };
 
-export default Layout;
+export default withRouter(Layout);

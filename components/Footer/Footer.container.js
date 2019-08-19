@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'next/router';
 
 import Footer from './Footer';
 
 const mapStateToProps = (state) => {
-  const { cartMode, isMobile } = state.app;
-  return { cartMode, isMobile };
+  const { isMobile } = state.app;
+  return { isMobile };
 };
 
-export default connect(mapStateToProps)(Footer);
+export default withRouter(connect(mapStateToProps)(Footer));

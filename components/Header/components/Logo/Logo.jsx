@@ -46,7 +46,8 @@ class Logo extends PureComponent {
 
   render() {
     const { text, translate } = this.state;
-    const { cartMode, isMobile, menuIsActive, closeMenu } = this.props;
+    const { isMobile, menuIsActive, closeMenu, router: { route }, router } = this.props;
+    const isCart = route === '/cart';
 
     const classesLogo = cn(css.logo, {
       [css.top]: text === 'top',
@@ -55,7 +56,7 @@ class Logo extends PureComponent {
       [css.translate]: translate,
     });
 
-    let color = cartMode ? '#9faeb9' : '#fff';
+    let color = isCart ? '#9faeb9' : '#fff';
     color = menuIsActive ? '#A0AEB9' : color;
 
     return (
@@ -119,7 +120,6 @@ class Logo extends PureComponent {
 }
 
 Logo.propTypes = {
-  cartMode: PropTypes.bool.isRequired,
   isMobile: PropTypes.bool.isRequired,
   menuIsActive: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func.isRequired,

@@ -5,8 +5,8 @@ import KrikdesignIcon from '../../../../icons/KrikdesignIcon';
 import css from './Info.module.scss';
 
 const Info = (props) => {
-  const { cartMode } = props;
-  const color = cartMode ? '#9faeb9' : '#fff';
+  const { isCart } = props;
+  const color = isCart ? '#9faeb9' : '#fff';
 
   return (
     <div className={css.container}>
@@ -19,7 +19,7 @@ const Info = (props) => {
 };
 
 Info.propTypes = {
-  cartMode: PropTypes.bool.isRequired,
+  isCart: PropTypes.bool.isRequired,
 };
 
 export default Info;

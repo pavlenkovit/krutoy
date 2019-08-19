@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { changeColor, changePage, changeModel, addToCart } from '../../store/actions';
+import { addToCart } from '../../store/actions';
 import Model from './Model';
 
-const actionCreators = { changeColor, changePage, changeModel, addToCart };
+const actionCreators = { addToCart };
 
 const mapStateToProps = (state) => {
   const { products } = state.cart;

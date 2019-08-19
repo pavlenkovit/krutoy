@@ -12,7 +12,7 @@ import css from './MainMenu.module.scss';
 const menu = [
   {
     title: 'Модели',
-    href: '/model',
+    href: '/',
     disabled: true,
     submenu: models,
   },
@@ -29,15 +29,18 @@ const menu = [
 const mobileMenu = [
   {
     title: 'Доставка и возврат',
-    href: '/info/delivery',
+    href: '/info?id=delivery',
+    as: '/info/delivery'
   },
   {
     title: 'Гарантия',
-    href: '/info/warranty',
+    href: '/info?id=warranty',
+    as: '/info/warranty',
   },
   {
     title: 'Инструкция и сборка',
-    href: '/info/construct',
+    href: '/info?id=construct',
+    as: '/info/construct',
   },
 ];
 
@@ -52,10 +55,11 @@ class MainMenu extends PureComponent {
   }
 
   render() {
-    const { activePage, count, cartMode, activeModel, isMobile, menuIsActive, closeMenu, toggleMenu } = this.props;
+    const { count, isMobile, menuIsActive, closeMenu, toggleMenu, router: { route, query: { id: activeModel } } } = this.props;
+    const isCart = route === '/cart';
 
     const menuClasses = cn(css.menu, {
-      [css.menu_cartMode]: cartMode,
+      [css.menu_cartMode]: isCart,
     });
 
     return (
@@ -74,7 +78,7 @@ class MainMenu extends PureComponent {
           <ul className={css.list}>
             {menu.map((item, idx) => {
               const itemClasses = cn(css.item, {
-                [css.item_active]: activePage === item.href,
+                [css.item_active]: route === item.href,
               });
 
               return (
@@ -88,7 +92,7 @@ class MainMenu extends PureComponent {
                     <div className={cn(css.line, css.line_rb)} />
                   </div>
                   {!item.disabled ? (
-                    <Link href={item.href}>
+                    <Link href={item.href} as={item.href}>
                       <a>
                         <div onClick={closeMenu}>{item.title}</div>
                       </a>
@@ -96,7 +100,7 @@ class MainMenu extends PureComponent {
                   ) : (
                     isMobile
                       ? (
-                        <Link href="/model/moose">
+                        <Link href="/model?id=moose" as="/model/moose">
                           <a>
                             <div onClick={closeMenu}>{item.title}</div>
                           </a>
@@ -115,7 +119,7 @@ class MainMenu extends PureComponent {
                         });
                         return (
                           <div key={idx} className={classesSubItem}>
-                            <Link href={`/model/${subItem.id}`}>
+                            <Link href={`/model?id=${subItem.id}`} as={`/model/${subItem.id}`}>
                               <a>
                                 <div onClick={closeMenu}>{subItem.title}</div>
                               </a>
@@ -131,7 +135,7 @@ class MainMenu extends PureComponent {
             {isMobile && mobileMenu.map((item, idx) => {
               return (
                 <li key={idx} className={cn(css.item, css.infoItem, { [css.infoItemFirst]: idx === 0 })}>
-                  <Link href={item.href}>
+                  <Link href={item.href} as={item.as}>
                     <a>
                       <div onClick={closeMenu}>{item.title}</div>
                     </a>
@@ -141,17 +145,17 @@ class MainMenu extends PureComponent {
             })}
           </ul>
         </CSSTransition>
-        {isMobile && <BurgerButton isActive={menuIsActive} handleClick={toggleMenu} cartMode={cartMode} />}
+        {isMobile && <BurgerButton isActive={menuIsActive} handleClick={toggleMenu} isCart={isCart} />}
 
-        <Link href="/cart/1">
+        <Link href="/cart?step=1" as="/cart/1">
           <a className={cn(css.cartLink, css.cartLink_copy)} onClick={closeMenu}>
-            <Cart count={count} cartMode={cartMode} menuIsActive={menuIsActive} />
+            <Cart count={count} isCart={isCart} menuIsActive={menuIsActive} />
           </a>
         </Link>
 
-        <Link href="/cart/1">
+        <Link href="/cart?step=1" as="/cart/1">
           <a className={css.cartLink} onClick={closeMenu}>
-            <Cart count={count} cartMode={cartMode} menuIsActive={menuIsActive} />
+            <Cart count={count} isCart={isCart} menuIsActive={menuIsActive} />
           </a>
         </Link>
       </nav>
@@ -160,10 +164,7 @@ class MainMenu extends PureComponent {
 }
 
 MainMenu.propTypes = {
-  activePage: PropTypes.string,
   count: PropTypes.number.isRequired,
-  cartMode: PropTypes.bool.isRequired,
-  activeModel: PropTypes.string,
   isMobile: PropTypes.bool.isRequired,
   menuIsActive: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func.isRequired,

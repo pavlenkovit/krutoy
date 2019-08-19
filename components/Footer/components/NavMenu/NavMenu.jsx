@@ -15,7 +15,7 @@ const NavMenu = (props) => {
       {items.map((col, idxCol) => (
         <div key={idxCol} className={css.col}>
           {col.map((item, idx) => (
-            <Link key={idx} href={item.href}>
+            <Link key={idx} href={`/info?id=${item.id}`} as={`/info/${item.id}`}>
               <a className={css.link}>
                 {item.title}
               </a>
