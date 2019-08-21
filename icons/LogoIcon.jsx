@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LogoIcon = (props) => {
-  const { color } = props;
+const LogoIcon = ({ color }) => {
   return (
     <svg viewBox="0 0 64 60" xmlnsXlink="http://www.w3.org/1999/xlink">
       <defs>

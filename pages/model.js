@@ -4,8 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import Model from '../scenes/Model';
 import baseURL from '../constants/baseURL';
 
-const ModelPage = (props) => {
-  const { model } = props;
+const ModelPage = ({ model }) => {
   return <Model model={model} />;
 };
 

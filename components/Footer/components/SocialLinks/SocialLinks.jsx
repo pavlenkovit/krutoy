@@ -9,9 +9,7 @@ import PinterestIcon from '../../../../icons/PinterestIcon';
 import FacebookIcon from '../../../../icons/FacebookIcon';
 import VkontakteIcon from '../../../../icons/VkontakteIcon';
 
-const SocialLinks = (props) => {
-
-  const { isCart } = props;
+const SocialLinks = ({ isCart }) => {
   const color = isCart ? '#9faeb9' : '#fff';
 
   return (

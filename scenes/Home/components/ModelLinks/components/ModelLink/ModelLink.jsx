@@ -42,12 +42,13 @@ class ModelLink extends PureComponent {
     const { id, title, selected } = this.props;
     const { x, y } = this.state;
 
-    const itemClasses = cn(css.item, {
-      [css.item_disabled]: selected,
-    });
-
     return (
-      <div className={itemClasses} ref={this.container} onMouseMove={this.mouseMove} onMouseLeave={this.endMove}>
+      <div
+        className={cn(css.item, { [css.item_disabled]: selected })}
+        ref={this.container}
+        onMouseMove={this.mouseMove}
+        onMouseLeave={this.endMove}
+      >
         <Link href={`/?model=${id}`}>
           <a className={css.link}>
             <div className={css.title} style={{ transform: `translate(${x * 15}%, ${y * 20}%)` }}>{title}</div>

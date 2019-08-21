@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
 import MessageArea from '../../components/MessageArea';
+import CustomHead from '../../components/CustomHead';
 
 class FinalStep extends PureComponent {
   componentDidMount() {
@@ -12,17 +12,23 @@ class FinalStep extends PureComponent {
 
   render() {
     return (
-      <MessageArea
-        content={(
-          <>
-            Мы получили ваш заказ и приступили к его комплектации. <br />
-            Все уведомления об изменениях статуса заказа будут приходить <br />
-            по указанному при регистрации адресу e-mail. <br />
-            Порадуем вас игрушками KRUTOY совсем скоро!
-          </>
-)}
-        linkText="На главную"
-      />
+      <>
+        <CustomHead
+          title="Корзина"
+          url="/cart"
+        />
+        <MessageArea
+          content={(
+            <>
+              Мы получили ваш заказ и приступили к его комплектации. <br />
+              Все уведомления об изменениях статуса заказа будут приходить <br />
+              по указанному при регистрации адресу e-mail. <br />
+              Порадуем вас игрушками KRUTOY совсем скоро!
+            </>
+          )}
+          linkText="На главную"
+        />
+      </>
     );
   }
 }

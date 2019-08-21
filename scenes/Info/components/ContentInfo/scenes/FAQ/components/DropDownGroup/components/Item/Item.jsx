@@ -63,7 +63,8 @@ class Item extends PureComponent {
 }
 
 Item.propTypes = {
-  question: PropTypes.string.isRequired, content: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default Item;

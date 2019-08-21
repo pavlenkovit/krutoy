@@ -18,6 +18,7 @@ class Cart extends PureComponent {
 
   render() {
     const { count, isCart, menuIsActive } = this.props;
+    const { isActive } = this.state;
 
     let color = isCart ? '#8693AB' : '#fff';
     color = menuIsActive ? '#A0AEB9' : color;
@@ -27,17 +28,13 @@ class Cart extends PureComponent {
       [css.container_menuIsActive]: menuIsActive,
     });
 
-    const classesCount = cn(css.count, {
-      [css.count_active]: this.state.isActive,
-    });
-
     if (count > 0) {
       color = '#000';
     }
 
     return (
       <div className={classesCart}>
-        <div className={classesCount}>{count}</div>
+        <div className={cn(css.count, { [css.count_active]: isActive })}>{count}</div>
         <svg className={css.highlight} viewBox="0 0 25 6">
           <path d="M1.573 2C5.63 3.644 9.31 4.466 12.613 4.466c3.304 0 6.633-.822 9.988-2.466" stroke={color} strokeWidth="3" fill="none" fillRule="evenodd" strokeLinecap="round" />
         </svg>

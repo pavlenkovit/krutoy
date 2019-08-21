@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const GooglePayIcon = (props) => {
-  const { color } = props;
+const GooglePayIcon = ({ color }) => {
   return (
     <svg viewBox="0 0 50 20">
       <g fill={color} opacity=".7" fillRule="nonzero">

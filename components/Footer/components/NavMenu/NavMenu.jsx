@@ -6,8 +6,7 @@ import itemsMobile from './constants/menuMobile';
 
 import css from './NavMenu.module.scss';
 
-const NavMenu = (props) => {
-  const { isMobile } = props;
+const NavMenu = ({ isMobile }) => {
   const items = isMobile ? itemsMobile : itemsDefault;
 
   return (

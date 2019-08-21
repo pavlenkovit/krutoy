@@ -2,15 +2,14 @@ import React, { PureComponent } from 'react';
 import { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-
-import '../../style.scss';
 import models from '../../constants/models';
 import { CSSTransition } from 'react-transition-group';
-import styles from './Layout.module.scss';
-
 import Header from '../Header';
 import Footer from '../Footer';
 import Loader from '../Loader';
+
+import '../../style.scss';
+import styles from './Layout.module.scss';
 
 class Layout extends PureComponent {
   state = {
@@ -35,8 +34,6 @@ class Layout extends PureComponent {
     const { timeRuns, isLoading } = this.state;
     const { onLoadApp } = this.props;
 
-    window.scrollTo({ top: 0 });
-
     if (!(isLoading || timeRuns)) {
       onLoadApp();
     }
@@ -56,16 +53,11 @@ class Layout extends PureComponent {
       color = models.find(model => model.id === id).color;
     }
 
-
     let background = color || '#B5BAC6';
 
     if (isCart) {
       background = '#E8EBEE';
     }
-
-    const layoutClasses = cn(styles.container, {
-      [styles.container_cart]: isCart,
-    });
 
     return (
       <>
@@ -82,7 +74,7 @@ class Layout extends PureComponent {
         >
           <Loader />
         </CSSTransition>
-        <div className={layoutClasses} style={{ background }}>
+        <div className={cn(styles.container, { [styles.container_cart]: isCart })} style={{ background }}>
           <Header />
           <main className={styles.content}>
             {children}

@@ -58,12 +58,8 @@ class MainMenu extends PureComponent {
     const { count, isMobile, menuIsActive, closeMenu, toggleMenu, router: { route, query: { id: activeModel } } } = this.props;
     const isCart = route === '/cart';
 
-    const menuClasses = cn(css.menu, {
-      [css.menu_cartMode]: isCart,
-    });
-
     return (
-      <nav className={menuClasses}>
+      <nav className={cn(css.menu, { [css.menu_cartMode]: isCart })}>
         <CSSTransition
           in={!isMobile || menuIsActive}
           timeout={200}

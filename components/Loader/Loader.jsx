@@ -6,14 +6,8 @@ import css from './Loader.module.scss';
 const models = ['#AAC3BF', '#97b5c5', '#95be9e', '#c9b1bd', '#e6af7a', '#d5a29c', '#82a7a6'];
 
 class Loader extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      indexBg: 0,
-    };
-    this.timer = null;
-  }
+  state = { indexBg: 0 };
+  timer = null;
 
   componentDidMount() {
     const lengthModels = models.length;

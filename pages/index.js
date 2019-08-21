@@ -4,8 +4,7 @@ import baseURL from '../constants/baseURL';
 
 import Home from '../scenes/Home';
 
-const IndexPage = (props) => {
-  const { model } = props;
+const IndexPage = ({ model }) => {
   return <Home model={model} />;
 };
 

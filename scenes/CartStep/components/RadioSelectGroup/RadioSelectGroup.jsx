@@ -22,12 +22,8 @@ class RadioSelectGroup extends PureComponent {
   render() {
     const { items, activeItem, invalid } = this.props;
 
-    const containerClasses = cn(css.container, {
-      [css.containerInvalid]: invalid,
-    });
-
     return (
-      <div className={containerClasses}>
+      <div className={cn(css.container, { [css.containerInvalid]: invalid })}>
         {items.map((item, idx) => {
           const classesItem = cn(css.item, {
             [css.itemActive]: activeItem === item.id,

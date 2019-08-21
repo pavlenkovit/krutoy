@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-
-import css from './Accessory.module.scss';
-
 import priceFormat from '../../utils/priceFormat';
 import Button from '../../components/Button';
 import Gallery from './components/Gallery';
 import ContentWrapper from '../../components/ContentWrapper';
 import AccessoriesLink from './components/AccessoriesLink';
+import CustomHead from '../../components/CustomHead';
+
+import css from './Accessory.module.scss';
 
 class Accessory extends PureComponent {
   state = { isScrolled: false };
@@ -36,17 +36,15 @@ class Accessory extends PureComponent {
   render() {
     const { isScrolled } = this.state;
     const { products, isMobile, accessory } = this.props;
-
     const hasInCart = products.find(product => product.id === accessory.id);
-
     const { name, description, price, gallery, preview } = accessory;
-
-    const buttonGroupClasses = cn(css.buttonGroup, {
-      [css.buttonGroup_fixed]: isScrolled,
-    });
 
     return (
       <div className={css.container}>
+        <CustomHead
+          title={name}
+          url={`/accessory/${accessory.id}`}
+        />
         <div className={css.row}>
           <div className={cn(css.col, css.col_product)}>
             {isMobile && (
@@ -67,7 +65,7 @@ class Accessory extends PureComponent {
               </h1>
               )}
               {!isMobile && <div className={css.price}>{priceFormat(price)}</div>}
-              <div className={buttonGroupClasses}>
+              <div className={cn(css.buttonGroup, { [css.buttonGroup_fixed]: isScrolled })}>
                 <div className={css.button}>
                   <Button withBorder w100 handleClick={this.addToCart}>{hasInCart ? 'Перейти' : 'Добавить'} <br />в корзину</Button>
                 </div>

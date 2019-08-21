@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import css from './FAQ.module.scss';
 import DropDownGroup from './components/DropDownGroup';
+import CustomHead from '../../../../../../components/CustomHead';
 
 const items = [
   {
@@ -172,17 +172,19 @@ const items = [
   },
 ];
 
-class FAQ extends PureComponent {
-  render() {
-    return (
-      <>
-        <h1>Вопросы и ответы</h1>
-        {items.map((item, idx) => (
-          <DropDownGroup key={idx} title={item.title} items={item.items} />
-        ))}
-      </>
-    );
-  }
-}
+const FAQ = () => {
+  return (
+    <>
+      <CustomHead
+        title="Вопросы и ответы"
+        url="/info/faq"
+      />
+      <h1>Вопросы и ответы</h1>
+      {items.map((item, idx) => (
+        <DropDownGroup key={idx} title={item.title} items={item.items} />
+      ))}
+    </>
+  );
+};
 
 export default FAQ;

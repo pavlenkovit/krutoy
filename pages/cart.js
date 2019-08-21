@@ -3,8 +3,7 @@ import Cart from '../scenes/Cart';
 import CartStep from '../scenes/CartStep';
 import FinalStep from '../scenes/FinalStep';
 
-const CartPage = (props) => {
-  const { step } = props;
+const CartPage = ({ step }) => {
   switch (step) {
     case '2':
       return <CartStep step={2} />;

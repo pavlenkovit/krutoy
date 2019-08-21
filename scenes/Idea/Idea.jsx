@@ -1,11 +1,16 @@
 import React from 'react';
 import cn from 'classnames';
+import CustomHead from '../../components/CustomHead';
 
 import css from './Idea.module.scss';
 
 const Idea = () => {
   return (
     <div className={css.main}>
+      <CustomHead
+        title="Идея"
+        url="/idea"
+      />
       <section className={css.container}>
         <article className={css.article}>
           <h2 className={css.title}>ИГРАЯ, ВЫРАСТАЕМ!</h2>

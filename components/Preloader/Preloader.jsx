@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import css from './Preloader.module.scss';
 
-const Preloader = (props) => {
-  const { color } = props;
+const Preloader = ({ color }) => {
   return (
     <div className={css.container}>
       <svg className={css.svg} viewBox="0 0 120 88">

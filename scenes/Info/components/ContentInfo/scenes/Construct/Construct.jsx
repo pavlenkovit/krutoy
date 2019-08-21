@@ -1,17 +1,14 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import SelectGroup from '../../../../../../components/SelectGroup';
 import models from '../../../../../../constants/models';
+import docs from './constants/docs';
+import CustomHead from '../../../../../../components/CustomHead';
 
 import css from './Construct.module.scss';
 
 class Construct extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = { activeItem: 'moose', videoIsOpen: false };
-  }
+  state = { activeItem: 'moose', videoIsOpen: false };
 
   closePopup = () => {
     this.setState({ videoIsOpen: false });
@@ -26,46 +23,18 @@ class Construct extends PureComponent {
   };
 
   _onReady(event) {
-    // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
 
   render() {
     const { activeItem, videoIsOpen } = this.state;
 
-    const docs = {
-      moose: {
-        doc: 'doc_losik.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-      donkey: {
-        doc: 'doc_oslik.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-      ram: {
-        doc: 'doc_baran.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-      elephant: {
-        doc: 'doc_slon.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-      giraffe: {
-        doc: 'doc_giraf.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-      unicorn: {
-        doc: 'doc_edinorog.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-      horse: {
-        doc: 'doc_loshad.pdf',
-        video: 'YnqOVU3T0zI',
-      },
-    };
-
     return (
       <>
+        <CustomHead
+          title="Инструкция и сборка"
+          url="/info/construct"
+        />
         <h1>Инструкция и сборка</h1>
         <div className={css.textBlock}>
           <p>Выберите модель качалки из списка и посмотрите как легко ее собрать.</p>
@@ -81,7 +50,7 @@ class Construct extends PureComponent {
           <p><a href={`/docs/${docs[activeItem].doc}`} download className={css.linkDownload}>Скачать инструкцию</a> (PDF, 1.6 Мбайт)</p>
           <p>Видеоинструкция по сборке</p>
           <div className={css.videoLink} onClick={this.openPopup}>
-            <img src="/img/video.png" alt="" />
+            <img src="/static/img/video.png" alt="" />
           </div>
         </div>
         {videoIsOpen && (
@@ -107,8 +76,5 @@ class Construct extends PureComponent {
     );
   }
 }
-
-Construct.propTypes = {
-};
 
 export default Construct;

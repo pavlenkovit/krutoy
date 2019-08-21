@@ -7,6 +7,7 @@ import Button from '../../../../components/Button';
 import FormGroup from '../FormGroup';
 import BackGroup from '../BackGroup';
 import RadioSelectGroup from '../RadioSelectGroup';
+import Router from 'next/router';
 
 import css from './Form4.module.scss';
 
@@ -29,17 +30,11 @@ class Form4 extends PureComponent {
 
     this.validate(() => {
       const { paymentMethodInvalid } = this.state;
-      const { history: { push } } = this.props;
       if (!paymentMethodInvalid) {
 
-        push('/cart/5');
+        Router.push('/cart?step=5', '/cart/5').then(() => window.scrollTo(0, 0));
 
-        const {
-          total, deliveryType, deliveryPrice, paymentMethod,
-          email, firstName, lastName, street, city,
-          //country, region,
-          postcode, telephone, products,
-        } = this.props;
+        const { total, deliveryType, deliveryPrice, paymentMethod, email, firstName, lastName, street, city, postcode, telephone, products } = this.props;
 
         const orderList = products.map((item) => {
           const { dataId, name, price, type, count } = item;
@@ -59,9 +54,7 @@ class Form4 extends PureComponent {
             second_name: lastName,
             phone: telephone,
             email,
-            //country,
             city,
-            //region,
             address: street,
             index: postcode,
           },
@@ -84,11 +77,7 @@ class Form4 extends PureComponent {
   };
 
   render() {
-    const {
-      email, street, city, changeData, deliveryTitle,
-      //country, region,
-      postcode, paymentMethod,
-    } = this.props;
+    const { email, street, city, changeData, deliveryTitle, postcode, paymentMethod } = this.props;
     const { paymentMethodInvalid } = this.state;
 
     return (
@@ -120,14 +109,8 @@ class Form4 extends PureComponent {
           <RadioSelectGroup
             invalid={paymentMethodInvalid}
             items={[
-              // {
-              //   id: 'card',
-              //   title: 'Кредитная карта',
-              // },
-              {
-                id: 'cash',
-                title: 'Наличные',
-              },
+              // { id: 'card', title: 'Кредитная карта' },
+              { id: 'cash', title: 'Наличные' },
             ]}
             name="paymentMethod"
             activeItem={paymentMethod}
@@ -136,7 +119,7 @@ class Form4 extends PureComponent {
         </FormGroup>
         <footer className={css.footer}>
           <div className={css.footerInner}>
-            <Link href="/cart/3">
+            <Link href="/cart?step=3" as="/cart/3">
               <a className={css.backButton}>
                 Назад
               </a>

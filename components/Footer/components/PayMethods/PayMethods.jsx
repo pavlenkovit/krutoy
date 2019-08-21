@@ -8,8 +8,7 @@ import MasterCardIcon from '../../../../icons/MasterCardIcon';
 
 import css from './PayMethods.module.scss';
 
-const PayMethods = (props) => {
-  const { isCart } = props;
+const PayMethods = ({ isCart }) => {
   const color = isCart ? '#9faeb9' : '#fff';
   return (
     <div className={css.container}>

@@ -9,6 +9,9 @@ import ContentWrapper from '../../components/ContentWrapper/ContentWrapper';
 import Details from './components/Details';
 import Preloader from '../../components/Preloader';
 import OtherProducts from './components/OtherProducts';
+import CustomHead from '../../components/CustomHead';
+
+import models from '../../constants/models';
 
 import css from './Model.module.scss';
 
@@ -65,15 +68,18 @@ class Model extends PureComponent {
   render() {
     const { isLoading, isScrolled } = this.state;
     const { products, history, isMobile, model } = this.props;
-
     const hasInCart = products.find(product => product.id === model.id);
 
-    const buttonGroupClasses = cn(css.buttonGroup, {
-      [css.buttonGroup_fixed]: isScrolled,
-    });
+    const modelInfo = models.find(modelItem => modelItem.id === model.id);
 
     return (
       <div className={css.container}>
+        <CustomHead
+          title={modelInfo.title}
+          url={`/model/${model.id}`}
+          imgKey={model.id}
+          description={modelInfo.description}
+        />
         <div className={css.row}>
           <div className={cn(css.col, css.col_product)}>
             {isLoading ? (
@@ -88,7 +94,7 @@ class Model extends PureComponent {
             <div className={css.info}>
               <ModelsNav id={model.id} />
               <div className={css.price}>{priceFormat(model.price)}</div>
-              <div className={buttonGroupClasses}>
+              <div className={cn(css.buttonGroup, { [css.buttonGroup_fixed]: isScrolled })}>
                 <div className={css.button}>
                   <Button withBorder w100 handleClick={this.addToCart}>{hasInCart ? 'Перейти' : 'Добавить'} <br />в корзину</Button>
                 </div>

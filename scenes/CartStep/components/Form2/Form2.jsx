@@ -4,8 +4,8 @@ import Link from 'next/link';
 import InputGroup from '../../../../components/InputGroup';
 import Button from '../../../../components/Button';
 import FormGroup from '../FormGroup';
-//import SelectGroup from '../../../../components/SelectGroup';
 import SelectSearchGroup from '../../../../components/SelectSearchGroup';
+import Router from 'next/router';
 
 import css from './Form2.module.scss';
 
@@ -48,20 +48,15 @@ class Form2 extends PureComponent {
 
     this.validate(() => {
       const { emailInvalid, firstNameInvalid, lastNameInvalid, streetInvalid, cityInvalid, postcodeInvalid, telephoneInvalid } = this.state;
-      const { history: { push } } = this.props;
       if (!emailInvalid && !firstNameInvalid && !lastNameInvalid && !streetInvalid && !cityInvalid && !postcodeInvalid && !telephoneInvalid) {
         this.props.changeStep(3);
-        push('/cart/3');
+        Router.push('/cart?step=3', '/cart/3').then(() => window.scrollTo(0, 0));
       }
     });
   };
 
   render() {
-    const {
-      email, firstName, lastName, street, city, changeData,
-      //country, region,
-      postcode, telephone, cities,
-    } = this.props;
+    const { email, firstName, lastName, street, city, changeData, postcode, telephone, cities } = this.props;
     const { emailInvalid, firstNameInvalid, lastNameInvalid, streetInvalid, cityInvalid, postcodeInvalid, telephoneInvalid } = this.state;
 
     const filterCities = cities ? Object.keys(cities).map(key => cities[key].name).filter(item => item.toUpperCase().indexOf(city.toUpperCase()) !== -1) : [];
@@ -88,12 +83,6 @@ class Form2 extends PureComponent {
         <div className={css.rowForm}>
           <div className={css.colForm}>
             <FormGroup title="">
-              {/*<SelectGroup*/}
-              {/*name="country"*/}
-              {/*activeItem={country}*/}
-              {/*items={['Россия', 'Украина', 'США']}*/}
-              {/*changeData={changeData}*/}
-              {/*/>*/}
               <InputGroup
                 invalid={postcodeInvalid}
                 label="Почтовый индекс"
@@ -106,12 +95,6 @@ class Form2 extends PureComponent {
           </div>
           <div className={css.colForm}>
             <FormGroup title="">
-              {/*<SelectGroup*/}
-              {/*name="region"*/}
-              {/*activeItem={region}*/}
-              {/*items={['Москва', 'Воронежская', 'Московская', 'Тверская']}*/}
-              {/*changeData={changeData}*/}
-              {/*/>*/}
               <InputGroup
                 invalid={telephoneInvalid}
                 label="Телефон"
@@ -125,7 +108,7 @@ class Form2 extends PureComponent {
         </div>
         <footer className={css.footer}>
           <div className={css.footerInner}>
-            <Link href="/cart/1">
+            <Link href="/cart?step=1" as="/cart/1">
               <a className={css.backButton}>
                 Назад
               </a>

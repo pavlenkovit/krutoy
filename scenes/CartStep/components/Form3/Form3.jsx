@@ -7,6 +7,7 @@ import FormGroup from '../FormGroup';
 import BackGroup from '../BackGroup';
 import RadioSelectGroup from '../RadioSelectGroup';
 import baseURL from '../../../../constants/baseURL';
+import Router from 'next/router';
 
 import css from './Form3.module.scss';
 
@@ -60,20 +61,15 @@ class Form3 extends PureComponent {
 
     this.validate(() => {
       const { deliveryTypeInvalid } = this.state;
-      const { history: { push } } = this.props;
       if (!deliveryTypeInvalid) {
         this.props.changeStep(4);
-        push('/cart/4');
+        Router.push('/cart?step=4', '/cart/4').then(() => window.scrollTo(0, 0));
       }
     });
   };
 
   render() {
-    const {
-      email, street, city, changeData, deliveryType,
-      //country, region,
-      postcode,
-    } = this.props;
+    const { email, street, city, changeData, deliveryType, postcode } = this.props;
     const { deliveryTypeInvalid, methods } = this.state;
 
     return (
@@ -89,9 +85,7 @@ class Form3 extends PureComponent {
               {
                 name: 'Адрес',
                 linkIndex: 2,
-                value: [postcode,
-                  //country, region,
-                  city, street].filter(item => item).join(', '),
+                value: [postcode, city, street].filter(item => item).join(', '),
               },
             ]}
           />
@@ -121,7 +115,7 @@ class Form3 extends PureComponent {
         </FormGroup>
         <footer className={css.footer}>
           <div className={css.footerInner}>
-            <Link href="/cart/2">
+            <Link href="/cart?step=2" as="/cart/2">
               <a className={css.backButton}>
                 Назад
               </a>

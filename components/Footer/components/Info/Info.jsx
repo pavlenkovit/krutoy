@@ -4,8 +4,7 @@ import KrikdesignIcon from '../../../../icons/KrikdesignIcon';
 
 import css from './Info.module.scss';
 
-const Info = (props) => {
-  const { isCart } = props;
+const Info = ({ isCart }) => {
   const color = isCart ? '#9faeb9' : '#fff';
 
   return (

@@ -10,23 +10,23 @@ const componentName = args.name;
 
 fs.mkdirSync(path.resolve(__dirname, '..', 'components', componentName));
 
-const componentCode = `import React, { PureComponent } from 'react';
+const componentCode = `import React from 'react';
 import PropTypes from 'prop-types';
+
 import css from './${componentName}.module.scss';
 
-class ${componentName} extends PureComponent {
-  render() {
-    return (
-      <div className={css.container}>
-      </div>
-    );
-  }
-}
+const ${componentName} = () => {
+  return (
+    <div className={css.container}>
+    </div>
+  );
+};
 
 ${componentName}.propTypes = {
 };
 
-export default ${componentName};`;
+export default ${componentName};
+`;
 
 fs.writeFileSync(
   path.resolve(__dirname, '..', 'components', componentName, `${componentName}.jsx`),

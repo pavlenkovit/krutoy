@@ -3,12 +3,12 @@ import cn from 'classnames';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-import styles from './Slider360.module.scss';
-
 import priceFormat from '../../../../utils/priceFormat';
 import Preloader from '../../../../components/Preloader';
 
 import models from '../../../../constants/models';
+
+import styles from './Slider360.module.scss';
 
 class Slider360 extends PureComponent {
   constructor(props) {

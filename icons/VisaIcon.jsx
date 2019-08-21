@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const VisaIcon = (props) => {
-  const { color } = props;
+const VisaIcon = ({ color }) => {
   return (
     <svg viewBox="0 0 49 17">
       <g fill={color} fillRule="evenodd" opacity=".7">

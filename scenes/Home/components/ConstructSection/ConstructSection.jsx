@@ -1,27 +1,22 @@
-import React, { PureComponent } from 'react';
-
-import css from './ConstructSection.module.scss';
+import React from 'react';
 import Button from '../../../../components/Button';
 
-class ConstructSection extends PureComponent {
-  render() {
-    return (
-      <section className={css.container}>
-        <div className={css.leftCol} />
-        <div className={css.rightCol}>
-          <article className={css.article}>
-            <div className={css.content}>
-              Конструкция наших игрушек продумана до мелочей. Сборка не составит труда и не займет много времени. Руководствуясь проиллюстрированной инструкцией, это сможет сделать любой взрослый.
-            </div>
-            <Button href="/info?id=construct" as="/info/construct">Собрать, легко!</Button>
-          </article>
-        </div>
-      </section>
-    );
-  }
-}
+import css from './ConstructSection.module.scss';
 
-ConstructSection.propTypes = {
+const ConstructSection = () => {
+  return (
+    <section className={css.container}>
+      <div className={css.leftCol} />
+      <div className={css.rightCol}>
+        <article className={css.article}>
+          <div className={css.content}>
+            Конструкция наших игрушек продумана до мелочей. Сборка не составит труда и не займет много времени. Руководствуясь проиллюстрированной инструкцией, это сможет сделать любой взрослый.
+          </div>
+          <Button href="/info?id=construct" as="/info/construct">Собрать, легко!</Button>
+        </article>
+      </div>
+    </section>
+  );
 };
 
 export default ConstructSection;

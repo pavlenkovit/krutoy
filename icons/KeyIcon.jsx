@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const KeyIcon = (props) => {
+const KeyIcon = ({ customClass }) => {
   return (
-    <svg className={props.customClass} viewBox="0 0 25 30">
+    <svg className={customClass} viewBox="0 0 25 30">
       <g stroke="#FFF" fill="none" fillRule="evenodd">
         <path d="M11.44 6.181l-2.976 5.155H3.512L.536 6.18l2.976-5.154h4.952z" />
         <path strokeLinecap="round" d="M23.89 25.932l-4.46 2.575-4.459-2.575" />

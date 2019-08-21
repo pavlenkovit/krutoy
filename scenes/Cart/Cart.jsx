@@ -2,13 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import css from './Cart.module.scss';
-
 import Button from '../../components/Button';
 import IncrementButton from './components/IncrementButton';
 import DecrementButton from './components/DecrementButton';
 import DeleteButton from './components/DeleteButton';
 import MessageArea from '../../components/MessageArea';
+import CustomHead from '../../components/CustomHead';
+
+import css from './Cart.module.scss';
 
 class Cart extends PureComponent {
   increment = id => () => {
@@ -52,6 +53,10 @@ class Cart extends PureComponent {
 
     return (
       <div className={css.main}>
+        <CustomHead
+          title="Корзина"
+          url="/cart"
+        />
         <h1 className={css.mainTitle}>Ваша корзина</h1>
         <div className={css.container}>
           <table className={css.table}>
@@ -160,7 +165,7 @@ class Cart extends PureComponent {
             <div className={css.totalPrice}>{total}₽</div>
           </div>
           <div className={css.buttonWrapper}>
-            <Button handleClick={this.checkout} href="/cart/2">Оформить</Button>
+            <Button handleClick={this.checkout} href="/cart?step=2" as="/cart/2">Оформить</Button>
           </div>
         </div>
       </div>

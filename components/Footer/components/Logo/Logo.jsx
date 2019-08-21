@@ -5,8 +5,7 @@ import LogoIcon from '../../../../icons/LogoIcon';
 
 import css from './Logo.module.scss';
 
-const Logo = (props) => {
-  const { isCart } = props;
+const Logo = ({ isCart }) => {
   const color = isCart ? '#9faeb9' : '#fff';
 
   return (

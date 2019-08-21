@@ -4,6 +4,8 @@ const withCss = require('@zeit/next-css');
 
 module.exports = withImages(withCss(withSass({
   target: 'serverless',
+  //useFileSystemPublicRoutes: false,
+  pageExtensions: ['jsx', 'js'],
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,

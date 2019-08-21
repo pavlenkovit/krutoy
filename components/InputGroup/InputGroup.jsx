@@ -14,17 +14,13 @@ class InputGroup extends PureComponent {
   render() {
     const { label, value, invalid, mask, isDarkPhone } = this.props;
 
-    const classesGroup = cn(css.inputGroup, {
-      [css.active]: value !== '',
-    });
-
     const classesInput = cn(css.input, {
       [css.invalid]: invalid,
       [css.dark]: isDarkPhone,
     });
 
     return (
-      <div className={classesGroup}>
+      <div className={cn(css.inputGroup, { [css.active]: value !== '' })}>
         <MaskedInput
           mask={mask}
           value={value}

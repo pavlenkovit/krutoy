@@ -4,8 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import Accessory from '../scenes/Accessory';
 import baseURL from '../constants/baseURL';
 
-const AccessoryPage = (props) => {
-  const { accessory } = props;
+const AccessoryPage = ({ accessory }) => {
   return <Accessory accessory={accessory} />;
 };
 

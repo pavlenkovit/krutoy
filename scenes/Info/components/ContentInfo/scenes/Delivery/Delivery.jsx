@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import * as axios from 'axios';
-import SelectGroup from '../../../../../../components/SelectGroup';
 import baseURL from '../../../../../../constants/baseURL';
 import SelectSearchGroup from '../../../../../../components/SelectSearchGroup';
 import Table from './components/Table';
+import InputGroup from '../../../../../../components/InputGroup';
+import CustomHead from '../../../../../../components/CustomHead';
 
 import css from './Delivery.module.scss';
-import InputGroup from '../../../../../../components/InputGroup';
 
 class Delivery extends PureComponent {
   state = { city: '', index: '', cityInvalid: false, indexInvalid: false, cities: null, methods: [], isLoading: true, showTableSection: false };
@@ -73,6 +72,10 @@ class Delivery extends PureComponent {
 
     return (
       <>
+        <CustomHead
+          title="Доставка и возврат"
+          url="/info/delivery"
+        />
         <h1>Доставка</h1>
         <div className={css.textBlock}>
           <p>Our policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately we can’t offer you a refund or exchange.</p>
@@ -120,8 +123,5 @@ class Delivery extends PureComponent {
     );
   }
 }
-
-Delivery.propTypes = {
-};
 
 export default Delivery;

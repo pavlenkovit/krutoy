@@ -1,8 +1,7 @@
 import React from 'react';
 import Info from '../scenes/Info';
 
-const InfoPage = (props) => {
-  const { id } = props;
+const InfoPage = ({ id }) => {
   return <Info id={id} />;
 };
 

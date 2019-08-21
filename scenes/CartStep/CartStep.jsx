@@ -7,17 +7,13 @@ import Form2 from './components/Form2';
 import Form3 from './components/Form3';
 import Form4 from './components/Form4';
 import baseURL from '../../constants/baseURL';
-
+import CustomHead from '../../components/CustomHead';
 import Router from 'next/router';
 
 import css from './CartStep.module.scss';
 
 class CartStep extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = { cities: null, showPrice: false };
-  }
+  state = { cities: null, showPrice: false };
 
   componentDidMount() {
     this.getData();
@@ -40,14 +36,14 @@ class CartStep extends PureComponent {
     const { stepOpen, history } = this.props;
 
     if (stepOpen < step) {
-      //Router.push({ pathname: '/cart/1' }); // TODO: настроить
+      //Router.push('/cart?step=3', '/cart/3'); // TODO: настроить
     }
 
     switch (step) {
       case 2:
-        return <Form2 history={history} cities={this.state.cities} />;
+        return <Form2 cities={this.state.cities} />;
       case 3:
-        return <Form3 history={history} />;
+        return <Form3 />;
       case 4:
         return <Form4 history={history} />;
       default:
@@ -61,6 +57,10 @@ class CartStep extends PureComponent {
 
     return (
       <div className={css.container}>
+        <CustomHead
+          title="Корзина"
+          url="/cart"
+        />
         <StepsNav step={step} />
         <div className={css.row}>
           <div className={css.formWrap}>

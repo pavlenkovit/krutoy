@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ApplePayIcon = (props) => {
-  const { color } = props;
+const ApplePayIcon = ({ color }) => {
   return (
     <svg viewBox="0 0 48 20">
       <g fill={color} opacity=".7" fillRule="evenodd">

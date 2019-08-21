@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MasterCardIcon = (props) => {
-  const { color } = props;
+const MasterCardIcon = ({ color }) => {
   return (
     <svg viewBox="0 0 99 14">
       <g fill={color} fillRule="evenodd" opacity=".7">

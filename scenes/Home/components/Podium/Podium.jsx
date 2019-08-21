@@ -1,7 +1,8 @@
 import React, { PureComponent, createRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import styles from './Podium.module.scss';
+
+import css from './Podium.module.scss';
 
 class Podium extends PureComponent {
   constructor(props) {
@@ -47,28 +48,28 @@ class Podium extends PureComponent {
     const { currentColors, children } = this.props;
 
     return (
-      <div className={styles.podium}>
-        <div className={styles.back} style={{ background: currentColors.back }} />
-        <div ref={this.last} className={cn(styles.block, styles.last)} style={{ background: currentColors.last }}>
-          <div className={styles.inner} style={{ borderLeft: `${lastWidth}px solid ${currentColors.last}` }} />
+      <div className={css.podium}>
+        <div className={css.back} style={{ background: currentColors.back }} />
+        <div ref={this.last} className={cn(css.block, css.last)} style={{ background: currentColors.last }}>
+          <div className={css.inner} style={{ borderLeft: `${lastWidth}px solid ${currentColors.last}` }} />
         </div>
-        <div ref={this.second} className={cn(styles.block, styles.second)} style={{ background: currentColors.second }}>
-          <div className={styles.inner} style={{ borderLeft: `${secondWidth}px solid ${currentColors.second}` }} />
+        <div ref={this.second} className={cn(css.block, css.second)} style={{ background: currentColors.second }}>
+          <div className={css.inner} style={{ borderLeft: `${secondWidth}px solid ${currentColors.second}` }} />
         </div>
-        <div ref={this.first} className={cn(styles.block, styles.first)} style={{ background: currentColors.first }}>
-          <div className={styles.inner} style={{ borderLeft: `${firstWidth}px solid ${currentColors.first}` }} />
+        <div ref={this.first} className={cn(css.block, css.first)} style={{ background: currentColors.first }}>
+          <div className={css.inner} style={{ borderLeft: `${firstWidth}px solid ${currentColors.first}` }} />
         </div>
-        <div className={cn(styles.block, styles.center)} style={{ background: currentColors.center }}>
+        <div className={cn(css.block, css.center)} style={{ background: currentColors.center }}>
           {children}
         </div>
-        <div className={cn(styles.block, styles.first)} style={{ background: currentColors.first }}>
-          <div className={styles.inner} style={{ borderRight: `${firstWidth}px solid ${currentColors.first}` }} />
+        <div className={cn(css.block, css.first)} style={{ background: currentColors.first }}>
+          <div className={css.inner} style={{ borderRight: `${firstWidth}px solid ${currentColors.first}` }} />
         </div>
-        <div className={cn(styles.block, styles.second)} style={{ background: currentColors.second }}>
-          <div className={styles.inner} style={{ borderRight: `${secondWidth}px solid ${currentColors.second}` }} />
+        <div className={cn(css.block, css.second)} style={{ background: currentColors.second }}>
+          <div className={css.inner} style={{ borderRight: `${secondWidth}px solid ${currentColors.second}` }} />
         </div>
-        <div className={cn(styles.block, styles.last)} style={{ background: currentColors.last }}>
-          <div className={styles.inner} style={{ borderRight: `${lastWidth}px solid ${currentColors.last}` }} />
+        <div className={cn(css.block, css.last)} style={{ background: currentColors.last }}>
+          <div className={css.inner} style={{ borderRight: `${lastWidth}px solid ${currentColors.last}` }} />
         </div>
       </div>
     );

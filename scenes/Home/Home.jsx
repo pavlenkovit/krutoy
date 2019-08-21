@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
-import css from './Home.module.scss';
 import PropTypes from 'prop-types';
-import Slider360 from './components/Slider360';
-import ModelLinks from './components/ModelLinks';
 import Link from 'next/link';
 import cn from 'classnames';
 
+import CustomHead from '../../components/CustomHead';
+import Slider360 from './components/Slider360';
+import ModelLinks from './components/ModelLinks';
 import Podium from './components/Podium';
 import IdeaSection from './components/IdeaSection';
 import ConstructSection from './components/ConstructSection';
+
+import css from './Home.module.scss';
 
 class Home extends PureComponent {
   state = { isShowFAQ: true };
@@ -43,6 +45,7 @@ class Home extends PureComponent {
 
     return (
       <main className={css.container}>
+        <CustomHead />
         <section className={css.firstScreen} style={{ background: model.colors.main }}>
           <ModelLinks id={model.id} />
           <Slider360 gallery3d={model.gallery3d} id={model.id} name={model.name} price={model.price} isLoadingApp={isLoadingApp} isMobile={isMobile} />

@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import css from './ModelLinks.module.scss';
 import ModelLink from './components/ModelLink';
 
 import menu from '../../../../constants/models';
+
+import css from './ModelLinks.module.scss';
 
 class ModelLinks extends PureComponent {
   state = { showSlider: false };

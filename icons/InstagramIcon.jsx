@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InstargamIcon = (props) => {
-  const { color } = props;
+const InstargamIcon = ({ color }) => {
   return (
     <svg viewBox="0 0 26 26">
       <g fill={color} fillRule="nonzero">
