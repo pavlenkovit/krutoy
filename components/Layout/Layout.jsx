@@ -22,10 +22,12 @@ class Layout extends PureComponent {
     this.handleResize();
 
     setTimeout(() => {
+      console.log('timeRuns');
       this.setState({ timeRuns: false });
-    }, 2500);
+    }, 1500);
 
     window.onload = () => {
+      console.log('onload');
       this.setState({ isLoading: false });
     };
   }

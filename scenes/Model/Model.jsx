@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import priceFormat from '../../utils/priceFormat';
-import Button from '../../components/Button';
 import ModelsNav from './components/ModelsNav';
 import GalleryModel from './components/GalleryModel';
 import ContentWrapper from '../../components/ContentWrapper/ContentWrapper';
@@ -10,31 +9,30 @@ import Details from './components/Details';
 import Preloader from '../../components/Preloader';
 import OtherProducts from './components/OtherProducts';
 import CustomHead from '../../components/CustomHead';
+import Router from 'next/router';
 
 import models from '../../constants/models';
 
 import css from './Model.module.scss';
+import BuyButtonsGroup from '../../components/BuyButtonsGroup';
 
 class Model extends PureComponent {
-  state = { isLoading: true, isScrolled: false };
+  state = { isLoading: true };
 
   componentDidMount() {
     const { model } = this.props;
     this.loadImages(model.gallery3d);
-    window.addEventListener('scroll', this.stickyButtons);
   }
 
   componentDidUpdate(prevProps) {
-    //this.setState({ isLoading: true });
-  }
+    const { model } = this.props;
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.stickyButtons);
+    if (prevProps.model.id !== model.id) {
+      this.setState({ isLoading: true }, () => {
+        this.loadImages(model.gallery3d);
+      });
+    }
   }
-
-  stickyButtons = () => {
-    this.setState({ isScrolled: window.scrollY > 20 && window.scrollY < document.body.clientHeight - window.innerHeight - 20 });
-  };
 
   loadImages = (gallery3d) => {
     let countLoaded = 0;
@@ -52,22 +50,16 @@ class Model extends PureComponent {
   };
 
   addToCart = () => {
-    const { model } = this.state;
-    const { addToCart, history } = this.props;
+    const { addToCart, model } = this.props;
 
-    addToCart({
-      ...model,
-      img: model.preview,
-      type: 'model',
-      count: 1,
-    }, () => {
-      history.push('/cart/1');
+    addToCart({ ...model, img: model.preview, type: 'model' }, () => {
+      Router.push('/cart?step=1', '/cart/1').then(() => window.scrollTo(0, 0));
     });
   };
 
   render() {
-    const { isLoading, isScrolled } = this.state;
-    const { products, history, isMobile, model } = this.props;
+    const { isLoading } = this.state;
+    const { products, isMobile, model } = this.props;
     const hasInCart = products.find(product => product.id === model.id);
 
     const modelInfo = models.find(modelItem => modelItem.id === model.id);
@@ -94,14 +86,10 @@ class Model extends PureComponent {
             <div className={css.info}>
               <ModelsNav id={model.id} />
               <div className={css.price}>{priceFormat(model.price)}</div>
-              <div className={cn(css.buttonGroup, { [css.buttonGroup_fixed]: isScrolled })}>
-                <div className={css.button}>
-                  <Button withBorder w100 handleClick={this.addToCart}>{hasInCart ? 'Перейти' : 'Добавить'} <br />в корзину</Button>
-                </div>
-                <div className={css.button}>
-                  <Button w100 handleClick={this.addToCart} href="/cart/1">Купить сейчас</Button>
-                </div>
-              </div>
+              <BuyButtonsGroup
+                handleClick={this.addToCart}
+                hasInCart={hasInCart}
+              />
               <div className={css.desc}>
                 <Details properties={model.properties} isMobile={isMobile} />
                 <ContentWrapper content={model.description} />
@@ -138,7 +126,7 @@ class Model extends PureComponent {
             </div>
           </div>
         </div>
-        <OtherProducts history={history} accessories={model.accessories} />
+        <OtherProducts accessories={model.accessories} />
       </div>
     );
   }

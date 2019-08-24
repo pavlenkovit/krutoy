@@ -11,7 +11,7 @@ export default handleActions({
   [actions.onLoadApp](state) {
     return {
       ...state,
-      isLoadingApp: false,
+      isLoadingApp: false, // для первой анимации качалки на главном экране
     };
   },
 

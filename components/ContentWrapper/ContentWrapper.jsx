@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import css from './ContentWrapper.module.scss';
 
-const ContentWrapper = (props) => {
-  const { content } = props;
+const ContentWrapper = ({ content }) => {
   return (
     <div className={css.content} dangerouslySetInnerHTML={{ __html: content }} />
   );

@@ -8,7 +8,7 @@ import css from './ProductAssembly.module.scss';
 
 const ProductAssembly = ({ products, addToCart }) => {
   const handleClick = () => {
-    addToCart({ dataId: '999', id: 'assembly', name: 'Наша сборка', price: 500, img: '/static/img/content/our_assembly.svg', type: 'service', count: 1 });
+    addToCart({ dataId: '999', id: 'assembly', name: 'Наша сборка', price: 500, img: '/static/img/content/our_assembly.svg', type: 'service' });
   };
   const hasInCart = products.find(product => product.dataId === '999');
 

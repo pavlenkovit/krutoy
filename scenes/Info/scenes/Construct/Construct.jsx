@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import YouTube from 'react-youtube';
-import SelectGroup from '../../../../../../components/SelectGroup';
-import models from '../../../../../../constants/models';
+import SelectGroup from '../../../../components/SelectGroup';
+import models from '../../../../constants/models';
 import docs from './constants/docs';
-import CustomHead from '../../../../../../components/CustomHead';
+import CustomHead from '../../../../components/CustomHead';
 
 import css from './Construct.module.scss';
 

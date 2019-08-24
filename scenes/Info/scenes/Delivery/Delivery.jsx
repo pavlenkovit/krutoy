@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import * as axios from 'axios';
-import baseURL from '../../../../../../constants/baseURL';
-import SelectSearchGroup from '../../../../../../components/SelectSearchGroup';
+import baseURL from '../../../../constants/baseURL';
+import SelectSearchGroup from '../../../../components/SelectSearchGroup';
 import Table from './components/Table';
-import InputGroup from '../../../../../../components/InputGroup';
-import CustomHead from '../../../../../../components/CustomHead';
+import InputGroup from '../../../../components/InputGroup';
+import CustomHead from '../../../../components/CustomHead';
 
 import css from './Delivery.module.scss';
 

@@ -7,12 +7,12 @@ const CustomHead = (props) => {
     title = 'ИГРАЯ, ВЫРАСТАЕМ!',
     description = 'Кто сказал, что игрушки — это несерьёзно?',
     imgKey = 'all',
-    url = ''
+    url = '',
   } = props;
 
   return (
     <Head>
-      <title key="title">KRUTOY{title && ` | ${title}`}</title>
+      <title key="title">{title && `${title} | `}KRUTOY</title>
       <meta key="meta-image" property="og:image" content={`/static/img/share/KRUTOY-PromoSite-Promo-${imgKey}-Share.jpg`} />
       <meta key="meta-url" property="og:url" content={`https://krutoy.store${url}`} />
       <meta key="meta-title" property="og:title" content={title} />

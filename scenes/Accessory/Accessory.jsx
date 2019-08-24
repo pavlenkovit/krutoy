@@ -1,88 +1,66 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Router from 'next/router';
+
 import priceFormat from '../../utils/priceFormat';
-import Button from '../../components/Button';
 import Gallery from './components/Gallery';
 import ContentWrapper from '../../components/ContentWrapper';
 import AccessoriesLink from './components/AccessoriesLink';
 import CustomHead from '../../components/CustomHead';
+import BuyButtonsGroup from '../../components/BuyButtonsGroup';
 
 import css from './Accessory.module.scss';
 
-class Accessory extends PureComponent {
-  state = { isScrolled: false };
+const Accessory = ({ products, isMobile, accessory, accessory: { id, name, description, price, gallery, preview }, addToCart }) => {
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.stickyButtons);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.stickyButtons);
-  }
-
-  addToCart = () => {
-    const { addToCart, history, accessory } = this.props;
-
-    addToCart({ ...accessory, img: accessory.preview, type: 'accessory', count: 1 }, () => {
-      history.push('/cart/1');
+  const add = () => {
+    addToCart({ ...accessory, img: preview, type: 'accessory' }, () => {
+      Router.push('/cart?step=1', '/cart/1').then(() => window.scrollTo(0, 0));
     });
   };
 
-  stickyButtons = () => {
-    this.setState({ isScrolled: window.scrollY > 20 && window.scrollY < document.body.clientHeight - window.innerHeight - 20 });
-  };
+  const hasInCart = products.find(product => product.id === id);
 
-  render() {
-    const { isScrolled } = this.state;
-    const { products, isMobile, accessory } = this.props;
-    const hasInCart = products.find(product => product.id === accessory.id);
-    const { name, description, price, gallery, preview } = accessory;
-
-    return (
-      <div className={css.container}>
-        <CustomHead
-          title={name}
-          url={`/accessory/${accessory.id}`}
-        />
-        <div className={css.row}>
-          <div className={cn(css.col, css.col_product)}>
-            {isMobile && (
+  return (
+    <div className={css.container}>
+      <CustomHead
+        title={name}
+        url={`/accessory/${id}`}
+      />
+      <div className={css.row}>
+        <div className={cn(css.col, css.col_product)}>
+          {isMobile && (
+          <h1 className={css.title}>
+            {name}
+            <AccessoriesLink />
+          </h1>
+          )}
+          {isMobile && <div className={css.price}>{priceFormat(price)}</div>}
+          <Gallery items={gallery} img={preview} />
+        </div>
+        <div className={cn(css.col, css.col_info)}>
+          <div>
+            {!isMobile && (
             <h1 className={css.title}>
               {name}
               <AccessoriesLink />
             </h1>
             )}
-            {isMobile && <div className={css.price}>{priceFormat(price)}</div>}
-            <Gallery items={gallery} img={preview} />
-          </div>
-          <div className={cn(css.col, css.col_info)}>
-            <div className={css.info}>
-              {!isMobile && (
-              <h1 className={css.title}>
-                {name}
-                <AccessoriesLink />
-              </h1>
-              )}
-              {!isMobile && <div className={css.price}>{priceFormat(price)}</div>}
-              <div className={cn(css.buttonGroup, { [css.buttonGroup_fixed]: isScrolled })}>
-                <div className={css.button}>
-                  <Button withBorder w100 handleClick={this.addToCart}>{hasInCart ? 'Перейти' : 'Добавить'} <br />в корзину</Button>
-                </div>
-                <div className={css.button}>
-                  <Button w100 handleClick={this.addToCart} href="/cart/1">Купить сейчас</Button>
-                </div>
-              </div>
-              <div className={css.desc}>
-                <ContentWrapper content={description} />
-              </div>
+            {!isMobile && <div className={css.price}>{priceFormat(price)}</div>}
+            <BuyButtonsGroup
+              handleClick={add}
+              hasInCart={hasInCart}
+            />
+            <div className={css.desc}>
+              <ContentWrapper content={description} />
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Accessory.propTypes = {
   accessory: PropTypes.object,

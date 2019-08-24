@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Transition } from 'react-transition-group';
-import DropDownIcon from '../../../../../../../../../../icons/DropDownIcon';
+import DropDownIcon from '../../../../../../../../icons/DropDownIcon';
 
 import css from './Item.module.scss';
 
@@ -35,7 +35,7 @@ class Item extends PureComponent {
     return (
       <div className={css.container}>
         <div className={cn(css.question, { [css.question_open]: isOpen })} onClick={this.handleClick}>
-          <DropDownIcon color="#fff" customClass={css.icon} />
+          <DropDownIcon customClass={css.icon} />
           <span>{question}</span>
         </div>
         <Transition
@@ -46,7 +46,6 @@ class Item extends PureComponent {
           onEntered={this.setHeight}
           onExiting={this.clearHeight}
           mountOnEnter
-          unmountOnExit
         >
           <div
             style={{ height: clientHeight }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomHead from '../../../../../../components/CustomHead';
+import CustomHead from '../../../../components/CustomHead';
 
 import css from './Warranty.module.scss';
 

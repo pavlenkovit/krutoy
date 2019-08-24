@@ -5,12 +5,8 @@ import cn from 'classnames';
 import css from './SelectSearchGroup.module.scss';
 
 class SelectSearchGroup extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.container = React.createRef();
-
-    this.state = { isOpen: false };
-  }
+  container = React.createRef();
+  state = { isOpen: false };
 
   onChange = (event) => {
     const { changeData, name } = this.props;

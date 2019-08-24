@@ -5,7 +5,7 @@ import ProductAssembly from './components/ProductAssembly';
 
 import css from './OtherProducts.module.scss';
 
-const OtherProducts = ({ history, accessories }) => {
+const OtherProducts = ({ accessories }) => {
   return (
     <div className={css.container}>
       <h2 className={css.title}>Дополнительные аксессуары</h2>
@@ -13,7 +13,7 @@ const OtherProducts = ({ history, accessories }) => {
         {accessories.map((item, idx) => {
           return (
             <div key={idx} className={css.col}>
-              <Product item={item} history={history} />
+              <Product item={item} />
             </div>
           );
         })}
@@ -27,7 +27,6 @@ const OtherProducts = ({ history, accessories }) => {
 
 OtherProducts.propTypes = {
   accessories: PropTypes.array.isRequired,
-  history: PropTypes.object.isRequired,
 };
 
 export default OtherProducts;

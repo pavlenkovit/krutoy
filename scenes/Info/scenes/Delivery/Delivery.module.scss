@@ -1,4 +1,4 @@
-@import "../../../../../../px-to-rem";
+@import "../../../../px-to-rem";
 
 .textBlock {
   max-width: rem(420px);
@@ -28,6 +28,7 @@
   border: none;
   font-size: rem(16px);
   transition: opacity .2s ease-out;
+  cursor: pointer;
   &:hover {
     opacity: 0.7;
   }

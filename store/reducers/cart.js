@@ -72,18 +72,11 @@ export default handleActions({
     let { products } = state;
 
     if (state.products.find(item => item.id === product.id)) {
-      products = products.map((item) => {
-        if (item.id === product.id) {
-          if (callback) {
-            callback();
-          }
-          return item;
-          //return { ...item, count: item.count + 1 };
-        }
-        return item;
-      });
+      if (callback) {
+        callback();
+      }
     } else {
-      products = [...state.products, product];
+      products = [...state.products, { ...product, count: 1 }];
     }
 
     return { ...state, products, ...recount(products, deliveryPrice) };

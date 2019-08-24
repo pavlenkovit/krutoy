@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import DropDownGroup from './components/DropDownGroup';
-import CustomHead from '../../../../../../components/CustomHead';
+import CustomHead from '../../../../components/CustomHead';
 
 const items = [
   {
