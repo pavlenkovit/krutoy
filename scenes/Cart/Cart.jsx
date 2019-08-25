@@ -37,7 +37,10 @@ class Cart extends PureComponent {
     if (products.length === 0) {
       return (
         <>
-          <Meta title="Корзина" />
+          <CustomHead
+            title="Корзина"
+            url="/cart"
+          />
           <MessageArea
             content={(
               <>
