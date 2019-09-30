@@ -19,7 +19,16 @@ const CartPage = ({ step }) => {
 };
 
 CartPage.getInitialProps = async (context) => {
-  const { step } = context.query;
+  const { query, req } = context;
+
+  let step = '';
+  if (query.step) { // переходы внутри сайта
+    step = context.query.step;
+  }
+  if (req && req.params && req.params.step) { // прямой переход по ссылке
+    step = req.params.step;
+  }
+
   return { step };
 };
 

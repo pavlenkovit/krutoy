@@ -1,30 +1,30 @@
 export default {
   moose: {
     doc: 'doc_losik.pdf',
-    video: 'YnqOVU3T0zI',
+    video: 'mT-dMP0bBWc',
   },
   donkey: {
     doc: 'doc_oslik.pdf',
-    video: 'YnqOVU3T0zI',
+    //video: 'YnqOVU3T0zI',
   },
   ram: {
     doc: 'doc_baran.pdf',
-    video: 'YnqOVU3T0zI',
+    video: '_YN0vNInlHI',
   },
   elephant: {
     doc: 'doc_slon.pdf',
-    video: 'YnqOVU3T0zI',
+    video: 'hxCGY1EAD34',
   },
   giraffe: {
     doc: 'doc_giraf.pdf',
-    video: 'YnqOVU3T0zI',
+    video: '3XKIFdvEd3s',
   },
   unicorn: {
     doc: 'doc_edinorog.pdf',
-    video: 'YnqOVU3T0zI',
+    video: 'uigvOiINqvQ',
   },
   horse: {
     doc: 'doc_loshad.pdf',
-    video: 'YnqOVU3T0zI',
+    //video: 'YnqOVU3T0zI',
   },
 };

@@ -48,10 +48,16 @@ class Construct extends PureComponent {
             />
           </div>
           <p><a href={`/docs/${docs[activeItem].doc}`} download className={css.linkDownload}>Скачать инструкцию</a> (PDF, 1.6 Мбайт)</p>
-          <p>Видеоинструкция по сборке</p>
-          <div className={css.videoLink} onClick={this.openPopup}>
-            <img src="/static/img/video.png" alt="" />
-          </div>
+          {docs[activeItem].video ? (
+            <>
+              <p>Видеоинструкция по сборке</p>
+              <div className={css.videoLink} onClick={this.openPopup}>
+                <img src="/static/img/video.png" alt="" />
+              </div>
+            </>
+          ) : (
+            <p>Видеоролика по сборке к этой моделе нет</p>
+          )}
         </div>
         {videoIsOpen && (
           <div className={css.popup} onClick={this.closePopup}>

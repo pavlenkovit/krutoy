@@ -6,7 +6,16 @@ const InfoPage = ({ id }) => {
 };
 
 InfoPage.getInitialProps = async (context) => {
-  const { id } = context.query;
+  const { query, req } = context;
+
+  let id = '';
+  if (query.id) { // переходы внутри сайта
+    id = context.query.id;
+  }
+  if (req && req.params && req.params.id) { // прямой переход по ссылке
+    id = req.params.slug;
+  }
+
   return { id };
 };
 
