@@ -13,7 +13,7 @@ InfoPage.getInitialProps = async (context) => {
     id = context.query.id;
   }
   if (req && req.params && req.params.id) { // прямой переход по ссылке
-    id = req.params.slug;
+    id = req.params.id;
   }
 
   return { id };

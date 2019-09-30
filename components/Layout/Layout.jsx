@@ -46,7 +46,14 @@ class Layout extends PureComponent {
   };
 
   render() {
-    const { children, router: { route, query: { id } } } = this.props;
+    const { children, router: { route, asPath } } = this.props;
+
+
+    let id = '';
+    if (/\/model\//ig.test(asPath)) {
+      id = asPath.replace(/\/model\//ig, '');
+    }
+
     const { isLoading, timeRuns } = this.state;
     const isCart = route === '/cart';
 
