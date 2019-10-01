@@ -52,7 +52,7 @@ class Construct extends PureComponent {
             <>
               <p>Видеоинструкция по сборке</p>
               <div className={css.videoLink} onClick={this.openPopup}>
-                <img src="/static/img/video.png" alt="" />
+                <img src={docs[activeItem].preview} alt="" />
               </div>
             </>
           ) : (
