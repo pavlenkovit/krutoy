@@ -47,7 +47,7 @@ class Construct extends PureComponent {
               white
             />
           </div>
-          <p><a href={`/docs/${docs[activeItem].doc}`} download className={css.linkDownload}>Скачать инструкцию</a> (PDF, 1.6 Мбайт)</p>
+          <p><a href={`/static/docs/${docs[activeItem].doc}`} download className={css.linkDownload}>Скачать инструкцию</a> (PDF, 1.6 Мбайт)</p>
           {docs[activeItem].video ? (
             <>
               <p>Видеоинструкция по сборке</p>
