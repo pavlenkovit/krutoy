@@ -16,6 +16,7 @@ const CustomHead = (props) => {
       <meta key="meta-image" property="og:image" content={`/static/img/share/KRUTOY-PromoSite-Promo-${imgKey}-Share.jpg`} />
       <meta key="meta-url" property="og:url" content={`https://krutoy.store${url}`} />
       <meta key="meta-title" property="og:title" content={title} />
+      <meta key="meta-og-title" property="og:description" content={description} />
       <meta key="meta-description" name="description" content={description} />
     </Head>
   );

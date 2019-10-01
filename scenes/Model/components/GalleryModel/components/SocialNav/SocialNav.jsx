@@ -18,18 +18,25 @@ class SocialNav extends PureComponent {
     window.open(url, '', 'width=626,height=436');
   };
 
+  shareFb = () => {
+    FB.ui({
+      method: 'share',
+      href: window.location.href,
+    }, (response) => {});
+  };
+
   render() {
     return (
       <div className={css.container}>
         <div className={css.title}>Поделиться:</div>
-        <div
-          onClick={this.share(`https://www.facebook.com/sharer.php?u=${window.location.href}`)}
+        <a
+          onClick={this.shareFb}
           className={css.link}
         >
           <div className={cn(css.icon, css.icon_facebook)}>
             <FacebookSmallIcon />
           </div>
-        </div>
+        </a>
         <div
           onClick={this.share(`http://vk.com/share.php?url=${window.location.href}`)}
           className={css.link}

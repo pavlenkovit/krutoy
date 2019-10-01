@@ -50,8 +50,20 @@ export default class MyApp extends App {
             <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#82a8a7" />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="theme-color" content="#ffffff" />
+            <script dangerouslySetInnerHTML={{ __html: `
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId: '509265456539260',
+                  autoLogAppEvents: true,
+                  xfbml: true,
+                  version: 'v4.0',
+                });
+              };`}}
+            />
+            <script async defer src="https://connect.facebook.net/en_US/sdk.js" />
           </Head>
           <Layout>
+
             <Component {...pageProps} />
           </Layout>
         </Container>
