@@ -11,7 +11,7 @@ const Product = ({ item, products, addToCart }) => {
   const { id, name, price, img } = item;
   const handleClick = () => {
     addToCart({ ...item, type: 'accessory' }, () => {
-      Router.push('/cart?step=1', '/cart/1').then(() => window.scrollTo(0, 0));
+      Router.push('/cart/[step]', '/cart/1').then(() => window.scrollTo(0, 0));
     });
   };
   const hasInCart = products.find(product => product.id === id);
@@ -30,7 +30,7 @@ const Product = ({ item, products, addToCart }) => {
       </Link>
       <div className={css.price}>{priceFormat(price)}</div>
       <div className={css.buttonLarge}>
-        <Button w100 handleClick={handleClick} href="/cart?step=1" as="/cart/1">Купить сейчас</Button>
+        <Button w100 handleClick={handleClick} href="/cart/[step]" as="/cart/1">Купить сейчас</Button>
       </div>
       <button className={css.buttonSmall} onClick={handleClick}>
         {hasInCart ? 'Перейти' : 'Добавить'} в&nbsp;корзину

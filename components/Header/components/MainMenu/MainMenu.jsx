@@ -143,13 +143,13 @@ class MainMenu extends PureComponent {
         </CSSTransition>
         {isMobile && <BurgerButton isActive={menuIsActive} handleClick={toggleMenu} isCart={isCart} />}
 
-        <Link href="/cart[step]" as="/cart/1">
+        <Link href="/cart/[step]" as="/cart/1">
           <a className={cn(css.cartLink, css.cartLink_copy)} onClick={closeMenu}>
             <Cart count={count} isCart={isCart} menuIsActive={menuIsActive} />
           </a>
         </Link>
 
-        <Link href="/cart[step]" as="/cart/1">
+        <Link href="/cart/[step]" as="/cart/1">
           <a className={css.cartLink} onClick={closeMenu}>
             <Cart count={count} isCart={isCart} menuIsActive={menuIsActive} />
           </a>

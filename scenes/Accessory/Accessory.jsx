@@ -16,7 +16,7 @@ const Accessory = ({ products, isMobile, accessory, accessory: { id, name, descr
 
   const add = () => {
     addToCart({ ...accessory, img: preview, type: 'accessory' }, () => {
-      Router.push('/cart?step=1', '/cart/1').then(() => window.scrollTo(0, 0));
+      Router.push('/cart/[step]', '/cart/1').then(() => window.scrollTo(0, 0));
     });
   };
 

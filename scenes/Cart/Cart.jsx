@@ -168,7 +168,7 @@ class Cart extends PureComponent {
             <div className={css.totalPrice}>{total}₽</div>
           </div>
           <div className={css.buttonWrapper}>
-            <Button handleClick={this.checkout} href="/cart?step=2" as="/cart/2">Оформить</Button>
+            <Button handleClick={this.checkout} href="/cart/[step]" as="/cart/2">Оформить</Button>
           </div>
         </div>
       </div>

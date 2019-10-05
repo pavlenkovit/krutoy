@@ -63,7 +63,7 @@ class Form3 extends PureComponent {
       const { deliveryTypeInvalid } = this.state;
       if (!deliveryTypeInvalid) {
         this.props.changeStep(4);
-        Router.push('/cart?step=4', '/cart/4').then(() => window.scrollTo(0, 0));
+        Router.push('/cart/[step]', '/cart/4').then(() => window.scrollTo(0, 0));
       }
     });
   };
@@ -115,7 +115,7 @@ class Form3 extends PureComponent {
         </FormGroup>
         <footer className={css.footer}>
           <div className={css.footerInner}>
-            <Link href="/cart?step=2" as="/cart/2">
+            <Link href="/cart/[step]" as="/cart/2">
               <a className={css.backButton}>
                 Назад
               </a>

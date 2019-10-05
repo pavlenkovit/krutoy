@@ -53,7 +53,7 @@ class Model extends PureComponent {
     const { addToCart, model } = this.props;
 
     addToCart({ ...model, img: model.preview, type: 'model' }, () => {
-      Router.push('/cart?step=1', '/cart/1').then(() => window.scrollTo(0, 0));
+      Router.push('/cart/[step]', '/cart/1').then(() => window.scrollTo(0, 0));
     });
   };
 

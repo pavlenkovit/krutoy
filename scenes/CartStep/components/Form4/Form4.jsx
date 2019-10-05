@@ -32,7 +32,7 @@ class Form4 extends PureComponent {
       const { paymentMethodInvalid } = this.state;
       if (!paymentMethodInvalid) {
 
-        Router.push('/cart?step=5', '/cart/5').then(() => window.scrollTo(0, 0));
+        Router.push('/cart/[step]', '/cart/5').then(() => window.scrollTo(0, 0));
 
         const { total, deliveryType, deliveryPrice, paymentMethod, email, firstName, lastName, street, city, postcode, telephone, products } = this.props;
 
@@ -119,7 +119,7 @@ class Form4 extends PureComponent {
         </FormGroup>
         <footer className={css.footer}>
           <div className={css.footerInner}>
-            <Link href="/cart?step=3" as="/cart/3">
+            <Link href="/cart/[step]" as="/cart/3">
               <a className={css.backButton}>
                 Назад
               </a>

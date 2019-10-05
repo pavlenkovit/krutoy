@@ -12,7 +12,7 @@ const BackGroup = ({ items }) => {
           <div key={idx} className={css.item}>
             <div className={css.title}>{item.name}</div>
             <div className={css.value}>{item.value}</div>
-            <Link href={`/cart/${item.linkIndex}`}>
+            <Link href="/cart/[step]" as={`/cart/${item.linkIndex}`}>
               <a className={css.link}>
                 Изменить
               </a>

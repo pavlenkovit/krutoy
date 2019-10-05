@@ -50,7 +50,7 @@ class Form2 extends PureComponent {
       const { emailInvalid, firstNameInvalid, lastNameInvalid, streetInvalid, cityInvalid, postcodeInvalid, telephoneInvalid } = this.state;
       if (!emailInvalid && !firstNameInvalid && !lastNameInvalid && !streetInvalid && !cityInvalid && !postcodeInvalid && !telephoneInvalid) {
         this.props.changeStep(3);
-        Router.push('/cart?step=3', '/cart/3').then(() => window.scrollTo(0, 0));
+        Router.push('/cart/[step]', '/cart/3').then(() => window.scrollTo(0, 0));
       }
     });
   };
@@ -108,7 +108,7 @@ class Form2 extends PureComponent {
         </div>
         <footer className={css.footer}>
           <div className={css.footerInner}>
-            <Link href="/cart?step=1" as="/cart/1">
+            <Link href="/cart/[step]" as="/cart/1">
               <a className={css.backButton}>
                 Назад
               </a>
