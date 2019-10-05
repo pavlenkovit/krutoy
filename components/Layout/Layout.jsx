@@ -46,23 +46,21 @@ class Layout extends PureComponent {
   };
 
   render() {
-    const { children, router: { route, asPath } } = this.props;
-
-    let id = '';
-    if (/\/model\//ig.test(asPath)) {
-      id = asPath.replace(/\/model\//ig, '');
-    }
-
+    const { children, router: { route, query } } = this.props;
     const { isLoading, timeRuns } = this.state;
-    const isCart = route === '/cart';
 
+    console.log(this.props.router);
+
+    let id = query.id;
     let color = null;
-    if (route === '/model') {
+
+    if (route === '/model/[id]') {
       color = models.find(model => model.id === id).color;
     }
 
     let background = color || '#B5BAC6';
 
+    const isCart = route === '/cart/[step]';
     if (isCart) {
       background = '#E8EBEE';
     }
