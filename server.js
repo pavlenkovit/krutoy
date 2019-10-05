@@ -9,30 +9,6 @@ app.prepare()
   .then(() => {
     const server = express();
 
-    server.get('/model/:id', (req, res) => {
-      const actualPage = '/model';
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams)
-    });
-
-    // server.get('/accessory/:id', (req, res) => {
-    //   const actualPage = '/accessory';
-    //   const queryParams = { id: req.params.id };
-    //   app.render(req, res, actualPage, queryParams)
-    // });
-
-    server.get('/info/:id', (req, res) => {
-      const actualPage = '/info';
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams)
-    });
-
-    server.get('/cart/:step', (req, res) => {
-      const actualPage = '/cart';
-      const queryParams = { step: req.params.step };
-      app.render(req, res, actualPage, queryParams)
-    });
-
     server.get('*', (req, res) => {
       return handle(req, res)
     });

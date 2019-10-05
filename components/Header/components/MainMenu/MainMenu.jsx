@@ -29,17 +29,17 @@ const menu = [
 const mobileMenu = [
   {
     title: 'Доставка и возврат',
-    href: '/info?id=delivery',
+    href: '/info/[id]',
     as: '/info/delivery'
   },
   {
     title: 'Гарантия',
-    href: '/info?id=warranty',
+    href: '/info/[id]',
     as: '/info/warranty',
   },
   {
     title: 'Инструкция и сборка',
-    href: '/info?id=construct',
+    href: '/info/[id]',
     as: '/info/construct',
   },
 ];
@@ -96,7 +96,7 @@ class MainMenu extends PureComponent {
                   ) : (
                     isMobile
                       ? (
-                        <Link href="/model?id=moose" as="/model/moose">
+                        <Link href="/model/[id]" as="/model/moose">
                           <a>
                             <div onClick={closeMenu}>{item.title}</div>
                           </a>
@@ -115,7 +115,7 @@ class MainMenu extends PureComponent {
                         });
                         return (
                           <div key={idx} className={classesSubItem}>
-                            <Link href={`/model?id=${subItem.id}`} as={`/model/${subItem.id}`}>
+                            <Link href="/model/[id]" as={`/model/${subItem.id}`}>
                               <a>
                                 <div onClick={closeMenu}>{subItem.title}</div>
                               </a>
@@ -143,13 +143,13 @@ class MainMenu extends PureComponent {
         </CSSTransition>
         {isMobile && <BurgerButton isActive={menuIsActive} handleClick={toggleMenu} isCart={isCart} />}
 
-        <Link href="/cart?step=1" as="/cart/1">
+        <Link href="/cart[step]" as="/cart/1">
           <a className={cn(css.cartLink, css.cartLink_copy)} onClick={closeMenu}>
             <Cart count={count} isCart={isCart} menuIsActive={menuIsActive} />
           </a>
         </Link>
 
-        <Link href="/cart?step=1" as="/cart/1">
+        <Link href="/cart[step]" as="/cart/1">
           <a className={css.cartLink} onClick={closeMenu}>
             <Cart count={count} isCart={isCart} menuIsActive={menuIsActive} />
           </a>

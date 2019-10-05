@@ -1,7 +1,7 @@
 import React from 'react';
-import Cart from '../scenes/Cart';
-import CartStep from '../scenes/CartStep';
-import FinalStep from '../scenes/FinalStep';
+import Cart from '../../scenes/Cart';
+import CartStep from '../../scenes/CartStep';
+import FinalStep from '../../scenes/FinalStep';
 
 const CartPage = ({ step }) => {
   switch (step) {
@@ -19,16 +19,7 @@ const CartPage = ({ step }) => {
 };
 
 CartPage.getInitialProps = async (context) => {
-  const { query, req } = context;
-
-  let step = '';
-  if (query.step) { // переходы внутри сайта
-    step = context.query.step;
-  }
-  if (req && req.params && req.params.step) { // прямой переход по ссылке
-    step = req.params.step;
-  }
-
+  const { query: { step } } = context;
   return { step };
 };
 

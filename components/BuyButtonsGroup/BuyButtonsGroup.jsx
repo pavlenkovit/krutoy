@@ -32,7 +32,7 @@ class BuyButtonsGroup extends PureComponent {
             <br />в корзину</Button>
         </div>
         <div className={css.button}>
-          <Button w100 handleClick={handleClick} href="/cart?step=1" as="/cart/1">Купить сейчас</Button>
+          <Button w100 handleClick={handleClick} href="/cart[step]" as="/cart/1">Купить сейчас</Button>
         </div>
       </div>
     );

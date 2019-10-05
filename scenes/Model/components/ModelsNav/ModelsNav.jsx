@@ -20,7 +20,7 @@ const ModelsNav = ({ id }) => {
   return (
     <div className={css.container}>
       <div className={css.inner}>
-        <Link href={`/model?id=${prevId}`} as={`/model/${prevId}`}>
+        <Link href="/model/[id]" as={`/model/${prevId}`}>
           <a className={cn(css.button, css.prev)}>
             <div className={css.linkInner}>
               <svg className={css.arrow} viewBox="0 0 19 33">
@@ -30,7 +30,7 @@ const ModelsNav = ({ id }) => {
           </a>
         </Link>
         <h1 className={css.title}>{model.title}</h1>
-        <Link href={`/model?id=${nextId}`} as={`/model/${nextId}`}>
+        <Link href="/model/[id]" as={`/model/${nextId}`}>
           <a className={cn(css.button, css.next)}>
             <div className={css.linkInner}>
               <svg className={css.arrow} viewBox="0 0 19 33">

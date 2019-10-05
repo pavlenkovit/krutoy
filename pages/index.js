@@ -9,7 +9,7 @@ const IndexPage = ({ model }) => {
 };
 
 IndexPage.getInitialProps = async (context) => {
-  const { model } = context.query;
+  const { query: { model } } = context;
   const id = model ? model : 'moose';
   const res = await fetch(`${baseURL}/models/${id}`);
   const data = await res.json();

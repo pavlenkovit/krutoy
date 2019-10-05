@@ -37,7 +37,7 @@ const NavMenu = ({ activeItem }) => {
     <div className={css.menu}>
       {menuItems.map(item => {
         return (
-          <Link key={item.id} href={`/info?id=${item.id}`} as={`/info/${item.id}`}>
+          <Link key={item.id} href="/info/[id]" as={`/info/${item.id}`}>
             <a className={cn(css.item, { [css.active]: item.id === activeItem })}>
               {item.title}
             </a>

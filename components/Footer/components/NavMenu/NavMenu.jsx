@@ -14,7 +14,7 @@ const NavMenu = ({ isMobile }) => {
       {items.map((col, idxCol) => (
         <div key={idxCol} className={css.col}>
           {col.map((item, idx) => (
-            <Link key={idx} href={`/info?id=${item.id}`} as={`/info/${item.id}`}>
+            <Link key={idx} href="/info/[id]" as={`/info/${item.id}`}>
               <a className={css.link}>
                 {item.title}
               </a>

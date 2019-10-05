@@ -48,7 +48,6 @@ class Layout extends PureComponent {
   render() {
     const { children, router: { route, asPath } } = this.props;
 
-
     let id = '';
     if (/\/model\//ig.test(asPath)) {
       id = asPath.replace(/\/model\//ig, '');
