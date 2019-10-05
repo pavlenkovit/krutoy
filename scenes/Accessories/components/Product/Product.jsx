@@ -8,7 +8,7 @@ import css from './Product.module.scss';
 const Product = ({ item: { id, preview, name, price } }) => {
   return (
     <div className={css.product}>
-      <Link href={`/accessory?id=${id}`} as={`/accessory/${id}`}>
+      <Link href="/accessory/[id]" as={`/accessory/${id}`}>
         <a className={css.link}>
           <div className={css.imgWrap}>
             <img className={css.img} src={preview} alt="" />

@@ -18,12 +18,12 @@ const Product = ({ item, products, addToCart }) => {
 
   return (
     <div className={css.container}>
-      <Link href={`/accessory?id=${id}`} as={`/accessory/${id}`}>
+      <Link href="/accessory/[id]" as={`/accessory/${id}`}>
         <a className={css.link}>
           {img && <img className={css.img} src={img} alt="" />}
         </a>
       </Link>
-      <Link href={`/accessory?id=${id}`} as={`/accessory/${id}`}>
+      <Link href="/accessory/[id]" as={`/accessory/${id}`}>
         <a className={css.titleLink}>
           <h3 className={css.title}>{name}</h3>
         </a>

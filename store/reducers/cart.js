@@ -1,44 +1,9 @@
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions';
 
-const initial = {
+let initial = {
   products: [],
   total: 0,
-
-  // products: [
-  //   {
-  //     count: 3,
-  //     id: 'hvost',
-  //     dataId: 2,
-  //     img: '/static/img/content/our_assembly.svg',
-  //     name: 'Хвост',
-  //     price: 1035,
-  //     type: 'accessory',
-  //     packageSizes: { height: 15, length: 76, width: 30, weight: 5.5 },
-  //   },
-  //   {
-  //     count: 2,
-  //     id: 'moose',
-  //     dataId: 1,
-  //     img: '/static/img/content/our_assembly.svg',
-  //     name: 'Лось',
-  //     price: 4508,
-  //     type: 'model',
-  //     packageSizes: { height: 15, length: 76, width: 30, weight: 5.5 },
-  //   },
-  //   {
-  //     count: 1,
-  //     id: 'assembly',
-  //     dataId: '999',
-  //     img: '/static/img/content/our_assembly.svg',
-  //     name: 'Наша сборка',
-  //     price: 500,
-  //     type: 'service',
-  //     packageSizes: "",
-  //   },
-  // ],
-  // total: 12621,
-
   stepOpen: 1,
   deliveryType: '',
   deliveryTitle: '',
@@ -65,7 +30,31 @@ const recount = (products, deliveryPrice) => {
   return { count, total, totalWithDelivery: total + deliveryPrice };
 };
 
+const updateStorage = (state) => {
+  // const { products, total, stepOpen, deliveryType, deliveryTitle, deliveryPrice, email, firstName, lastName, street, city, postcode, telephone, paymentMethod } = state;
+  // localStorage.setItem('products', JSON.stringify(products));
+  // localStorage.setItem('total', total);
+  // localStorage.setItem('stepOpen', stepOpen);
+  // localStorage.setItem('deliveryType', deliveryType);
+  // localStorage.setItem('deliveryTitle', deliveryTitle);
+  // localStorage.setItem('deliveryPrice', deliveryPrice);
+  // localStorage.setItem('email', email);
+  // localStorage.setItem('firstName', firstName);
+  // localStorage.setItem('lastName', lastName);
+  // localStorage.setItem('street', street);
+  // localStorage.setItem('city', city);
+  // localStorage.setItem('postcode', postcode);
+  // localStorage.setItem('telephone', telephone);
+  // localStorage.setItem('paymentMethod', paymentMethod);
+};
+
 export default handleActions({
+  [actions.update](state, { payload }) {
+    const { localStorage } = payload;
+    console.log(localStorage);
+    return { ...state, localStorage };
+  },
+
   [actions.addToCart](state, { payload }) {
     const { product, callback } = payload;
     const { deliveryPrice } = state;
@@ -79,7 +68,9 @@ export default handleActions({
       products = [...state.products, { ...product, count: 1 }];
     }
 
-    return { ...state, products, ...recount(products, deliveryPrice) };
+    const result = { ...state, products, ...recount(products, deliveryPrice) };
+    updateStorage(result);
+    return result;
   },
 
   [actions.incrementProduct](state, { payload }) {
@@ -93,7 +84,9 @@ export default handleActions({
       return item;
     });
 
-    return { ...state, products, ...recount(products, deliveryPrice) };
+    const result = { ...state, products, ...recount(products, deliveryPrice) };
+    updateStorage(result);
+    return result;
   },
 
   [actions.decrementProduct](state, { payload }) {
@@ -114,7 +107,9 @@ export default handleActions({
       });
     }
 
-    return { ...state, products, ...recount(products, deliveryPrice) };
+    const result = { ...state, products, ...recount(products, deliveryPrice) };
+    updateStorage(result);
+    return result;
   },
 
   [actions.removeFromCart](state, { payload }) {
@@ -123,25 +118,33 @@ export default handleActions({
 
     const products = state.products.filter(item => item.id !== id);
 
-    return { ...state, products, ...recount(products, deliveryPrice) };
+    const result = { ...state, products, ...recount(products, deliveryPrice) };
+    updateStorage(result);
+    return result;
   },
 
   [actions.resetAll](state) {
     const { deliveryPrice } = state;
     const products = [];
-    return { ...state, products, ...recount(products, deliveryPrice) };
+    const result = { ...state, products, ...recount(products, deliveryPrice) };
+    updateStorage(result);
+    return result;
   },
 
   [actions.changeData](state, { payload }) {
     const { data } = payload;
     const newState = { ...state, ...data };
     const { products, deliveryPrice } = newState;
-    return { ...newState, ...recount(products, deliveryPrice) };
+    const result = { ...newState, ...recount(products, deliveryPrice) };
+    updateStorage(result);
+    return result;
   },
 
   [actions.changeStep](state, { payload }) {
     const { stepOpen } = payload;
-    return { ...state, stepOpen };
+    const result = { ...state, stepOpen };
+    updateStorage(result);
+    return result;
   },
 
 }, initial);

@@ -7,10 +7,46 @@ import Layout from '../components/Layout';
 import createStore from '../store';
 
 const store = createStore();
+//import { update } from '../store/actions';
 
 export default class MyApp extends App {
   componentDidMount() {
     window.addEventListener('resize', this.changeFontSize);
+
+    // const products = localStorage.getItem('products');
+    // const total = localStorage.getItem('total');
+    // const stepOpen = localStorage.getItem('stepOpen');
+    // const deliveryType = localStorage.getItem('deliveryType');
+    // const deliveryTitle = localStorage.getItem('deliveryTitle');
+    // const deliveryPrice = localStorage.getItem('deliveryPrice');
+    // const email = localStorage.getItem('email');
+    // const firstName = localStorage.getItem('firstName');
+    // const lastName = localStorage.getItem('lastName');
+    // const street = localStorage.getItem('street');
+    // const city = localStorage.getItem('city');
+    // const postcode = localStorage.getItem('postcode');
+    // const telephone = localStorage.getItem('telephone');
+    // const paymentMethod = localStorage.getItem('paymentMethod');
+    //
+    // const params = {
+    //   products: products ? JSON.parse(products) : [],
+    //   total: total ? +total : 0,
+    //   stepOpen: stepOpen ? +stepOpen : 1,
+    //   deliveryType: deliveryType ? deliveryType : '',
+    //   deliveryTitle: deliveryTitle ? deliveryTitle : '',
+    //   deliveryPrice: deliveryPrice ? +deliveryPrice : 0,
+    //   email: email ? email : '',
+    //   firstName: firstName ? firstName : '',
+    //   lastName: lastName ? lastName : '',
+    //   street: street ? street : '',
+    //   city: city ? city : '',
+    //   postcode: postcode ? postcode : '',
+    //   telephone: telephone ? telephone : '',
+    //   paymentMethod: paymentMethod ? paymentMethod : 'cash',
+    // };
+
+    //store.dispatch(update(params));
+
     this.changeFontSize();
   }
 

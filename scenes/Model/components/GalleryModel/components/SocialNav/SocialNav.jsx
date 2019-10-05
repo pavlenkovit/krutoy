@@ -1,5 +1,4 @@
-import React, { PureComponent, createRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import cn from 'classnames';
 import FacebookSmallIcon from '../../../../../../icons/FacebookSmallIcon';
 import OkIcon from '../../../../../../icons/OkIcon';
@@ -61,7 +60,5 @@ class SocialNav extends PureComponent {
     );
   }
 }
-
-SocialNav.propTypes = {};
 
 export default SocialNav;

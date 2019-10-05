@@ -15,11 +15,11 @@ app.prepare()
       app.render(req, res, actualPage, queryParams)
     });
 
-    server.get('/accessory/:id', (req, res) => {
-      const actualPage = '/accessory';
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams)
-    });
+    // server.get('/accessory/:id', (req, res) => {
+    //   const actualPage = '/accessory';
+    //   const queryParams = { id: req.params.id };
+    //   app.render(req, res, actualPage, queryParams)
+    // });
 
     server.get('/info/:id', (req, res) => {
       const actualPage = '/info';

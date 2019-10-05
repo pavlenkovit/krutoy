@@ -12,6 +12,7 @@ export const removeFromCart = createAction('REMOVE_FROM_CART', id => ({ id }));
 export const incrementProduct = createAction('INCREMENT_PRODUCT', id => ({ id }));
 export const decrementProduct = createAction('DECREMENT_PRODUCT', id => ({ id }));
 export const resetAll = createAction('RESET_ALL');
+export const update = createAction('UPDATE', localStorage => ({ localStorage }));
 
 export const changeData = createAction('CHANGE_DATA', data => ({ data }));
 
