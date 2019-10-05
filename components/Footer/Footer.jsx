@@ -13,7 +13,7 @@ import css from './Footer.module.scss';
 
 const Footer = ({ isMobile, router: { route } }) => {
   const [isShowMail, showMail] = useState(false);
-  const isCart = route === '/cart';
+  const isCart = route === '/cart/[step]';
 
   return (
     <footer id="footer" className={css.container}>

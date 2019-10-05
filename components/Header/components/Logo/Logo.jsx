@@ -47,7 +47,7 @@ class Logo extends PureComponent {
   render() {
     const { text, translate } = this.state;
     const { isMobile, menuIsActive, closeMenu, router: { route } } = this.props;
-    const isCart = route === '/cart';
+    const isCart = route === '/cart/[step]';
 
     const classesLogo = cn(css.logo, {
       [css.top]: text === 'top',
